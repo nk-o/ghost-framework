@@ -24,7 +24,7 @@ class Ghost_Framework {
     private static $framework_url = '';
 
     /**
-     * Registered options array.
+     * Registered options array
      *
      * @var array
      */
