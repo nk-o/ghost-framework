@@ -38,35 +38,35 @@ class Ghost_Framework {
     private static $typography = array();
 
     /**
-     * Body class
+     * Body class.
      *
      * @var string
      */
     private static $body_class = '';
 
     /**
-     * Admin body class
+     * Admin body class.
      *
      * @var string
      */
     private static $admin_body_class = '';
 
     /**
-     * TGMPA plugins
+     * TGMPA plugins.
      *
      * @var array
      */
     private static $tgmpa_plugins = array();
 
     /**
-     * TGMPA config
+     * TGMPA config.
      *
      * @var array
      */
     private static $tgmpa_config = array();
 
     /**
-     * SCSS files available for compilation
+     * SCSS files available for compilation.
      *
      * @var array
      */
