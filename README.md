@@ -47,6 +47,122 @@ Ghost_Framework::add_field( array(
     'priority' => 10
 ) );
 
+Ghost_Framework::add_field( array(
+     'type' => 'image',
+     'settings' => 'option_name',
+     'label' => esc_html__( 'Label', '@@text_domain' ),
+     'description' => esc_html__( 'Description', '@@text_domain' ),
+     'section' => 'section_name',
+) );
+
+Ghost_Framework::add_field( array(
+     'type' => 'color',
+     'settings' => 'option_name',
+     'label' => esc_html__( 'Label', '@@text_domain' ),
+     'description' => esc_html__( 'Description', '@@text_domain' ),
+     'section' => 'section_name',
+) );
+
+Ghost_Framework::add_field( array(
+     'type'        => 'number',
+     'settings'    => 'option_name',
+     'label' => esc_html__( 'Label', '@@text_domain' ),
+     'description' => esc_html__( 'Description', '@@text_domain' ),
+     'section'     => 'section_name',
+     'default'     => 42,
+     'choices'     => array(
+         'min'  => 0,
+         'max'  => 80,
+         'step' => 1,
+     ),
+) );
+
+Ghost_Framework::add_field( array(
+    'type'        => 'slider',
+    'settings'    => 'option_name',
+    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'section'     => 'section_name',
+    'default'     => 42,
+    'choices'     => array(
+        'min'  => 0,
+        'max'  => 100,
+        'step' => 1,
+    ),
+) );
+
+Ghost_Framework::add_field( array(
+    'type' => 'repeater',
+    'settings' => 'option_name',
+    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'section' => 'section_name',
+    'priority' => 10,
+    'row_label' => array(
+        'type' => 'text',
+        'value' => esc_attr__( 'Example', '@@text_domain' ),
+    ),
+    'button_label' => esc_attr__( '"Add new" Example (optional) ', '@@text_domain' ),
+    'default' => array(
+        array(
+            'url' => '#',
+            'target' => '_self',
+        ),
+        array(
+            'url' => '#',
+            'target' => '_self',
+        ),
+    ),
+    'fields' => array(
+        'url' => array(
+            'type' => 'text',
+            'label' => esc_attr__( 'Link URL', '@@text_domain' ),
+            'description' => esc_attr__( 'This will be the link URL', '@@text_domain' ),
+            'default' => '',
+        ),
+        'target' => array(
+            'type' => 'select',
+            'label' => esc_html__( 'Target', '@@text_domain' ),
+            'default' => '_blank',
+            'choices' => array(
+                '_blank' => esc_attr__( 'Blank', '@@text_domain' ),
+                '_self' => esc_attr__( 'Self', '@@text_domain' ),
+                '_parent' => esc_attr__( 'Parent', '@@text_domain' ),
+                '_top' => esc_attr__( 'Top', '@@text_domain' ),
+            ),
+        ),
+    ),
+) );
+
+Ghost_Framework::add_field( array(
+    'type'        => 'select',
+    'settings'    => 'option_name',
+    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'section'     => 'section_name',
+    'default'     => 'option-1',
+    'choices'     => array(
+        'option-1' => esc_html__( 'Option 1', '@@text_domain' ),
+        'option-2' => esc_html__( 'Option 2', '@@text_domain' ),
+        'option-3' => esc_html__( 'Option 3', '@@text_domain' ),
+        'option-4' => esc_html__( 'Option 4', '@@text_domain' ),
+    ),
+) );
+
+Ghost_Framework::add_field( array(
+    'type' => 'text',
+    'settings' => 'option_name',
+    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section' => 'section_name',
+    'default' => 'Test Value',
+) );
+
+Ghost_Framework::add_field( array(
+    'type' => 'upload',
+    'settings' => 'option_name',
+    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section' => 'section_name',
+) );
+
 $option_value = Ghost_Framework::get_theme_mod( $name, $use_acf, $post_id, $acf_name );
 $metabox_value = Ghost_Framework::get_metabox( $name, $post_id );
 ```
@@ -61,6 +177,33 @@ Ghost_Framework::add_field( array(
     'section'    => 'footer',
     'default'    => 'sidebar-footer-1',
 ) );
+```
+#### Add custom Typography
+```php
+Ghost_Framework::add_typography(
+    array(
+        'body' => array(
+            'label' => esc_html__( 'Body', '@@text_domain' ),
+            'defaults' => array(
+                'font-family-category' => 'google-fonts',
+                'font-family' => 'Abel',
+                'font-size' => '14px',
+                'font-weight' => '',
+                'line-height' => '',
+                'letter-spacing' => '',
+            ),
+            'output' => array(
+                array(
+                    'selectors' => 'body',
+                ),
+                array(
+                    'selectors' => '#editor .editor-styles-wrapper, .editor-styles-wrapper p',
+                    'editor' => true,
+                ),
+            ),
+        ),
+    )
+);
 ```
 
 #### Add custom SCSS compilation
