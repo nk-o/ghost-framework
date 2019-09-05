@@ -104,8 +104,7 @@ class Ghost_Framework {
      * @return bool
      */
     public static function is_theme_active() {
-        $current_theme = wp_get_theme();
-        return ( function_exists( 'nk_theme' ) && ( 'GoodGames' == $current_theme->name || 'GoodGames Child' == $current_theme->name ) && ( nk_theme()->theme_dashboard()->is_envato_hosted || nk_theme()->theme_dashboard()->activation()->active ) );
+        return ( function_exists( 'nk_theme' ) && ( nk_theme()->theme_dashboard()->is_envato_hosted || nk_theme()->theme_dashboard()->activation()->active ) );
     }
 
     /**
