@@ -27,9 +27,9 @@ class Ghost_Framework_Fonts {
      * Enqueue frontend & editor assets
      */
     public function enqueue_all_fonts_assets() {
-        wp_enqueue_script( 'webfontloader', Ghost_Framework::get_url() . '/assets/vendor/webfontloader/webfontloader.js', array(), '1.6.28', true );
-        wp_enqueue_script( 'ghost-framework-fonts-loader', Ghost_Framework::get_url() . '/assets/js/fonts-loader.js', array(), '1.0.0', true );
-        wp_localize_script( 'webfontloader', 'ghostFrameworkWebfontList', $this->get_font_loader_list() );
+        wp_enqueue_script( 'webfontloader', Ghost_Framework::get_url() . '/assets/vendor/webfontloader/webfontloader.js', array(), '1.6.28' );
+        wp_enqueue_script( 'ghost-framework-fonts-loader', Ghost_Framework::get_url() . '/assets/js/fonts-loader.js', array( 'webfontloader' ), '1.0.0' );
+        wp_localize_script( 'ghost-framework-fonts-loader', 'ghostFrameworkWebfontList', $this->get_font_loader_list() );
     }
 
     /**
@@ -122,7 +122,13 @@ class Ghost_Framework_Fonts {
                                 }
                             }
                         }
-
+                        if ( isset( $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ] ) ) {
+                            if ( isset( $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ][ 'widths' ] ) &&
+                                ! empty( $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ][ 'widths' ] ) &&
+                                is_array( $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ][ 'widths' ] ) ) {
+                                $weights =  array_unique( array_merge_recursive( $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ][ 'widths' ], $weights ) );
+                            }
+                        }
                         $webfont_list[ $font[ 'family' ] ][ $font[ 'label' ] ] = array(
                             'widths' => $weights,
                             'category' => $category,
