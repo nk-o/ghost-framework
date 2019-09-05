@@ -99,6 +99,15 @@ class Ghost_Framework {
     }
 
     /**
+     * Check Theme active.
+     *
+     * @return bool
+     */
+    public static function is_theme_active() {
+        return ( function_exists( 'nk_theme' ) && ( nk_theme()->theme_dashboard()->is_envato_hosted || nk_theme()->theme_dashboard()->activation()->active ) );
+    }
+
+    /**
      * Get framework path.
      */
     public static function get_path() {
