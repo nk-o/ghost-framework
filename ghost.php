@@ -794,7 +794,20 @@ class Ghost_Framework {
                     if ( 'post' != get_post_type() ) {
                         $post_type = get_post_type_object( get_post_type() );
                         $slug = $post_type->rewrite;
-                        $result .= sprintf( $link, $home_link . '/' . $slug['slug'] . '/', $post_type->labels->singular_name );
+
+                        switch ( $post_type->name ) {
+                            case 'team':
+                            case 'game':
+                            case 'player':
+                            case 'match':
+                            case 'tournament':
+                                $label = $post_type->label;
+                                break;
+                            default:
+                                $label = $post_type->labels->singular_name;
+                        }
+
+                        $result .= sprintf( $link, $home_link . '/' . $slug['slug'] . '/', $label );
                         if ( 1 == $args['show_current'] ) {
                             $result .= $args['delimiter'] . $args['before'] . get_the_title() . $sub_result . $args['after'];
                         }
@@ -829,8 +842,20 @@ class Ghost_Framework {
                     }
                 } elseif ( ! is_single() && ! is_page() && 'post' != get_post_type() && ! is_404() ) {
                     $post_type = get_post_type_object( get_post_type() );
-                    if ( is_object( $post_type ) ) {
-                        $result .= $args['before'] . $post_type->labels->singular_name . $sub_result . $args['after'];
+                    $label = false;
+                    if ( is_object( $post_type ) &&
+                        ( is_post_type_archive( 'team' ) ||
+                            is_post_type_archive( 'game' ) ||
+                            is_post_type_archive( 'player' ) ||
+                            is_post_type_archive( 'match' ) ||
+                            is_post_type_archive( 'tournament' ) )
+                    ) {
+                        $label = $post_type->labels->name;
+                    } elseif ( is_object( $post_type ) ) {
+                        $label = $post_type->labels->singular_name;
+                    }
+                    if ( is_object( $post_type ) && $label ) {
+                        $result .= $args['before'] . $label . $sub_result . $args['after'];
                     }
                 } elseif ( is_attachment() ) {
                     $parent = get_post( $post->post_parent );
