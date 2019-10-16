@@ -794,7 +794,7 @@ class Ghost_Framework {
                     if ( 'post' != get_post_type() ) {
                         $post_type = get_post_type_object( get_post_type() );
                         $slug = $post_type->rewrite;
-
+                        $home_link = rtrim( $home_link, '/' );
                         switch ( $post_type->name ) {
                             case 'team':
                             case 'game':
@@ -802,6 +802,7 @@ class Ghost_Framework {
                             case 'match':
                             case 'tournament':
                                 $label = $post_type->label;
+                                $slug['slug'] = $post_type->has_archive;
                                 break;
                             default:
                                 $label = $post_type->labels->singular_name;
