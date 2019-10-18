@@ -749,14 +749,10 @@ class Ghost_Framework {
                 }
                 $sub_result = '';
                 if ( get_query_var( 'paged' ) ) {
-                    if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
-                        $sub_result .= ' (';
-                    }
+                    $sub_result .= ' (';
                     // @codingStandardsIgnoreLine
                     $sub_result .= esc_html__( 'Page', '@@text_domain' ) . ' ' . get_query_var( 'paged' );
-                    if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
-                        $sub_result .= ')';
-                    }
+                    $sub_result .= ')';
                 }
                 if ( $args['home'] ) {
                     $result .= sprintf( $link, $home_link, $args['home'] ) . $args['delimiter'];
