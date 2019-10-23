@@ -853,6 +853,8 @@ class Ghost_Framework {
                     }
                     if ( is_object( $post_type ) && $label ) {
                         $result .= $args['before'] . $label . $sub_result . $args['after'];
+                    } else {
+                        $result .= $args['before'] . esc_html( $args['404'] ) . $sub_result . $args['after'];
                     }
                 } elseif ( is_attachment() ) {
                     $parent = get_post( $post->post_parent );
