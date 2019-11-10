@@ -105,9 +105,9 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
         wp_enqueue_style( 'wp-color-picker' );
 
         // Enqueue selectWoo.
-        wp_enqueue_script( 'selectWoo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/js/selectWoo.full.js', array( 'jquery' ), '1.0.1', true );
-        wp_enqueue_style( 'selectWoo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/css/selectWoo.css', array(), '1.0.1' );
-        wp_enqueue_style( 'kirki-selectWoo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/kirki.css', array(), KIRKI_VERSION );
+        wp_enqueue_script( 'select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/js/selectWoo.full.js', array( 'jquery' ), '1.0.1', true );
+        wp_enqueue_style( 'select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/css/selectWoo.css', array(), '1.0.1' );
+        wp_enqueue_style( 'kirki-select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/kirki.css', array(), KIRKI_VERSION );
 
         // Enqueue the script.
         wp_enqueue_script(
@@ -118,7 +118,7 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
                 'customize-base',
                 'wp-editor',
                 'wp-color-picker-alpha',
-                'selectWoo',
+                'select-woo',
                 'jquery-ui-button',
                 'jquery-ui-datepicker',
             ),
