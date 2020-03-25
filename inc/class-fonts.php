@@ -45,7 +45,7 @@ class Ghost_Framework_Fonts {
 
         // Default Typography.
         if ( isset( $default_typography ) && ! empty( $default_typography ) ) {
-            foreach ( $default_typography as $typography ) {
+            foreach ( $default_typography as $key => $typography ) {
                 if ( isset( $typography[ 'defaults' ][ 'font-family' ] ) &&
                     ! empty( $typography[ 'defaults' ][ 'font-family' ] ) &&
                     isset( $typography[ 'defaults' ][ 'font-family-category' ] ) &&
@@ -57,10 +57,17 @@ class Ghost_Framework_Fonts {
                         $weight = $typography[ 'defaults' ][ 'font-weight' ];
                     }
 
+                    $additional_font_weights = array();
+                    if ( isset( $typography[ 'additional_font_weights' ] ) &&
+                        ! empty( $typography[ 'additional_font_weights' ] ) ) {
+                        $additional_font_weights[ $key ] = $typography[ 'additional_font_weights' ];
+                    }
+
                     $fonts[] = array(
                         'family' => $typography[ 'defaults' ][ 'font-family-category' ],
                         'label' => $typography[ 'defaults' ][ 'font-family' ],
                         'weight' => $weight,
+                        'typography' => $key,
                     );
                 }
             }
@@ -76,7 +83,26 @@ class Ghost_Framework_Fonts {
                         $category = ( isset( $find_font[ 'category' ] ) && ! empty( $find_font[ 'category' ] ) ) ? $find_font[ 'category' ] : '';
                         $subsets = ( isset( $find_font[ 'subsets' ] ) && ! empty( $find_font[ 'subsets' ] ) ) ? $find_font[ 'subsets' ] : '';
 
-                        if ( $weight !== '' ) {
+                        if ( isset( $additional_font_weights ) && ! empty( $additional_font_weights ) ) {
+                            foreach ( $additional_font_weights as $key => $additional_font_weight ) {
+                                if ( $key === $font[ 'typography' ] ) {
+                                    $font_weights = $additional_font_weight;
+                                }
+                            }
+                        }
+
+                        if ( isset( $font_weights ) && ! empty( $font_weights ) && is_array( $font_weights ) ) {
+                            $insert_weights = array();
+                            if ( $weight !== '' ) {
+                                $insert_weights[] = $weight;
+                            }
+                            $insert_weights = array_merge( $insert_weights, $font_weights );
+                            foreach ( $insert_weights as $insert_weight ) {
+                                if ( array_search( $insert_weight, $widths ) !== false ) {
+                                    $weights[] = $insert_weight;
+                                }
+                            }
+                        } elseif ( $weight !== '' ) {
                             $weight = str_replace( 'i', '', $weight);
 
                             if ( $weight !== '600' &&
