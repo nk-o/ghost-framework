@@ -94,7 +94,9 @@ class Ghost_Framework_Fonts {
                         if ( isset( $font_weights ) && ! empty( $font_weights ) && is_array( $font_weights ) ) {
                             $insert_weights = array();
                             if ( $weight !== '' ) {
+                                $weight = str_replace( 'i', '', $weight );
                                 $insert_weights[] = $weight;
+                                $insert_weights[] = $weight . 'i';
                             }
                             $insert_weights = array_merge( $insert_weights, $font_weights );
                             foreach ( $insert_weights as $insert_weight ) {
