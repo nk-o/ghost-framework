@@ -42,6 +42,7 @@ class Ghost_Framework_Fonts {
         $fonts_list = apply_filters( 'ghost_framework_fonts_list', array() );
         $default_typography = apply_filters( 'ghost_framework_typography', array() );
         $fonts = $webfont_list = array();
+        $additional_font_weights = array();
 
         // Default Typography.
         if ( isset( $default_typography ) && ! empty( $default_typography ) ) {
@@ -57,7 +58,6 @@ class Ghost_Framework_Fonts {
                         $weight = $typography[ 'defaults' ][ 'font-weight' ];
                     }
 
-                    $additional_font_weights = array();
                     if ( isset( $typography[ 'additional_font_weights' ] ) &&
                         ! empty( $typography[ 'additional_font_weights' ] ) ) {
                         $additional_font_weights[ $key ] = $typography[ 'additional_font_weights' ];
