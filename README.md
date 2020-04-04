@@ -1,6 +1,7 @@
-## Ghost Framework
+# Ghost Framework
 
-#### Initialize (see functions.php)
+## Initialize (see functions.php)
+
 ```php
 require_once get_template_directory() . '/framework/ghost.php';
 new Ghost_Framework( array(
@@ -9,7 +10,8 @@ new Ghost_Framework( array(
 ) );
 ```
 
-#### Add TGMPA plugins
+## Add TGMPA plugins
+
 ```php
 Ghost_Framework::add_tgmpa( array(
     array(
@@ -20,7 +22,8 @@ Ghost_Framework::add_tgmpa( array(
 ) );
 ```
 
-#### Work with Kirki options (save default options in array)
+## Work with Kirki options (save default options in array)
+
 ```php
 Ghost_Framework::add_config( array(
     'capability'  => 'edit_theme_options',
@@ -167,8 +170,10 @@ $option_value = Ghost_Framework::get_theme_mod( $name, $use_acf, $post_id, $acf_
 $metabox_value = Ghost_Framework::get_metabox( $name, $post_id );
 ```
 
-#### Extended Kirki fields
-##### Sidebars Selector
+## Extended Kirki fields
+
+### Sidebars Selector
+
 ```php
 Ghost_Framework::add_field( array(
     'type'       => 'sidebars',
@@ -178,7 +183,9 @@ Ghost_Framework::add_field( array(
     'default'    => 'sidebar-footer-1',
 ) );
 ```
-#### Add custom Typography
+
+## Add custom Typography
+
 ```php
 Ghost_Framework::add_typography(
     array(
@@ -206,7 +213,8 @@ Ghost_Framework::add_typography(
 );
 ```
 
-#### Add custom SCSS compilation
+## Add custom SCSS compilation
+
 ```php
 // Starter Theme.
 Ghost_Framework::enqueue_scss(
@@ -216,17 +224,67 @@ Ghost_Framework::enqueue_scss(
     get_template_directory_uri() . '/assets/css/@@theme_name.min.css'
 );
 ```
+
 In file `/assets/css/@@theme_name-custom.php` you can use options from customizer to define user colors.
 
 Usage example see in `functions.php` file
 
-#### Add theme dashboard
+## Brand SVG
+
+### Get brand SVG string
+
+```php
+$icon = Ghost_Framework::brand_svg()::get( 'facebook' );
+```
+
+### Get brand name string
+
+```php
+$name = Ghost_Framework::brand_svg()::get_name( 'facebook' );
+// returns 'Facebook'
+```
+
+### Check if brand exists
+
+```php
+if ( Ghost_Framework::brand_svg()::exists( 'facebook' ) ) {
+    ...
+}
+```
+
+### Print brand SVG icon
+
+Auto:
+
+```php
+Ghost_Framework::brand_svg()::get_e( 'facebook' );
+```
+
+Manual:
+
+```php
+if ( Ghost_Framework::brand_svg()::exists( 'facebook' ) ) {
+    $icon = Ghost_Framework::brand_svg()::get( 'facebook' );
+    echo wp_kses( $icon, Ghost_Framework::brand_svg()::kses() );
+}
+```
+
+### Get all available brands
+
+```php
+$brands = Ghost_Framework::brand_svg()::get_all_brands();
+```
+
+## Add theme dashboard
+
 ```php
 Ghost_Framework::add_theme_dashboard( $data );
 ```
 
-#### Add menu
-Uses menu args like in this function https://developer.wordpress.org/reference/functions/wp_nav_menu/ + additional attributes for walker.
+## Add menu
+
+Uses menu args like in this function <https://developer.wordpress.org/reference/functions/wp_nav_menu/> + additional attributes for walker.
+
 ```php
 Ghost_Framework::print_nav_menu( array(
     // default args.
@@ -258,24 +316,28 @@ Ghost_Framework::print_nav_menu( array(
 ) );
 ```
 
-#### Add Mega menu checkbox in nav settings
+## Add Mega menu checkbox in nav settings
+
 ```php
 Ghost_Framework::add_mega_menu();
 ```
 
-#### Add classes on &lt;body&gt; tag
+## Add classes on &lt;body&gt; tag
+
 ```php
 Ghost_Framework::add_body_class( 'custom classes' );
 Ghost_Framework::add_body_class( 'custom-class-2' );
 ```
 
-#### Add classes on Admin &lt;body&gt; tag
+## Add classes on Admin &lt;body&gt; tag
+
 ```php
 Ghost_Framework::add_admin_body_class( 'custom classes' );
 Ghost_Framework::add_admin_body_class( 'custom-class-2' );
 ```
 
-#### Print posts navigation
+## Print posts navigation
+
 ```php
 Ghost_Framework::posts_pagination( array(
     'templates' => array(
@@ -300,12 +362,14 @@ Ghost_Framework::posts_pagination( array(
 ) );
 ```
 
-#### Get image data by ID or URL
+## Get image data by ID or URL
+
 ```php
 Ghost_Framework::get_attachment( $id, $size );
 ```
 
 Return example:
+
 ```php
 array(
     'alt' => '',
@@ -319,12 +383,14 @@ array(
 )
 ```
 
-#### Get &lt;img&gt; tag string by ID or URL
+## Get &lt;img&gt; tag string by ID or URL
+
 ```php
 Ghost_Framework::get_image( $id, $size, $icon, $attr );
 ```
 
-#### Get array with available image sizes (plus full size)
+## Get array with available image sizes (plus full size)
+
 ```php
 Ghost_Framework::get_image_sizes();
 ```

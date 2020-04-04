@@ -88,6 +88,7 @@ class Ghost_Framework {
                 'class-kirki-control-sidebars.php',
                 'class-fonts.php',
                 'class-typography.php',
+                'class-brand-svg.php',
             );
             foreach ( $classes_include as $inc ) {
                 require_once self::$framework_path . '/inc/' . $inc;
@@ -436,6 +437,13 @@ class Ghost_Framework {
                 nk_theme()->scss( $scss['compiled_filename'], dirname( $scss['src'] ), $scss_content );
             }
         }
+    }
+
+    /**
+     * Return Brand SVG Class.
+     */
+    public static function brand_svg() {
+        return 'Ghost_Framework_Brand_Svg';
     }
 
     /**
