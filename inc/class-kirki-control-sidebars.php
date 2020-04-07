@@ -34,6 +34,7 @@ function ghost_framework_customizer_register_control_sidebars( $controls ) {
          */
         public function render_content() {
             $sidebar_options = $GLOBALS['wp_registered_sidebars'];
+            $input_id         = '_customize-input-' . $this->id;
             ?>
             <?php if ( $this->label ) : ?>
                 <label class="customize-control-title" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $this->label ); ?></label>
@@ -42,7 +43,7 @@ function ghost_framework_customizer_register_control_sidebars( $controls ) {
                 <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
             <?php endif; ?>
             <select <?php $this->link(); ?> id="<?php echo esc_attr( $input_id ); ?>">
-                <option value="" <?php echo selected( $this->value(), $option['id'], false ); ?>><?php echo esc_html__( '-- Select sidebar --', '@@text_domain' ); ?></option>
+                <option value="" <?php echo selected( $this->value(), '', false ); ?>><?php echo esc_html__( '-- Select sidebar --', '@@text_domain' ); ?></option>
                 <?php foreach ( $sidebar_options as $option ) : ?>
                     <option value="<?php echo esc_attr( $option['id'] ); ?>" <?php echo selected( $this->value(), $option['id'], false ); ?>><?php echo esc_html( $option['name'] ); ?></option>
                 <?php endforeach; ?>
