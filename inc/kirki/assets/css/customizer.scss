@@ -1,0 +1,407 @@
+#customize-controls {
+    /*
+     * Panels and Sections.
+     */
+    .panel-title.dashicons-before::before {
+        width: 23px;
+        height: 26px;
+        margin-right: 5px;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .control-panel-content:not(.control-panel-nav_menus) .control-section:nth-child(2),
+    .control-panel-nav_menus .control-section-nav_menu,
+    .control-section-nav_menu_locations .accordion-section-title {
+        border-top: none;
+    }
+
+    .accordion-section-title {
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 400;
+        color: #555d66;
+        background-color: transparent;
+        border-bottom: none;
+        border-left: none;
+        transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
+
+        &.dashicons-before::before {
+            width: 16px;
+            height: 20px;
+            margin-right: 5px;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        &::after {
+            top: calc(50% - 5.5px);
+            right: 20px;
+            font-size: .9em;
+            color: inherit;
+        }
+    }
+
+    .control-section:hover > .accordion-section-title,
+    .control-section .accordion-section-title:hover,
+    .control-section.open .accordion-section-title,
+    .control-section .accordion-section-title:focus {
+        color: #0073aa;
+        background: #fdfdfd;
+    }
+
+    /*
+     * Fields.
+     */
+    .customize-control-title {
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .customize-control-description {
+        font-size: 12px;
+        opacity: .8;
+    }
+    .customize-control {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 10px;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            clear: both;
+        }
+    }
+
+    /*
+     * Toggle Field.
+     */
+    .customize-control-kirki-toggle {
+        .switch {
+            position: absolute;
+            top: 12px;
+            right: 10px;
+            width: 32px;
+            height: 14px;
+            background-color: transparent;
+            border: 2px solid #6c7781;
+            border-radius: 9px;
+            transition: background .2s ease;
+
+            &::after {
+                left: 2px;
+                width: 10px;
+                height: 10px;
+                background-color: #6c7781;
+                border: none;
+                border-radius: 50%;
+                transition: transform .1s ease;
+            }
+            &::before {
+                content: none;
+            }
+        }
+        input:checked + .switch {
+            background-color: #0073aa;
+            border-color: #0073aa;
+
+            &::after {
+                left: 9px;
+                background-color: #fff;
+            }
+        }
+    }
+
+    /*
+     * Color Field.
+     */
+    .customize-control-kirki-color {
+        position: relative;
+
+        .wp-picker-container {
+            display: block;
+        }
+        .wp-picker-active {
+            padding: 20px;
+            padding-bottom: 0;
+            margin-right: -20px;
+            margin-left: -20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, .05);
+        }
+        .wp-color-result-text {
+            // stylelint-disable-next-line
+            display: none !important;
+        }
+        .button.wp-color-result {
+            // stylelint-disable-next-line
+            position: absolute !important;
+            top: 10px;
+            right: 10px;
+            min-height: 30px;
+            // stylelint-disable-next-line
+            margin: 0 !important;
+            overflow: hidden;
+            background-size: 10px;
+            border: none;
+            border-radius: 50%;
+        }
+        .color-alpha {
+            // stylelint-disable-next-line
+            width: 100% !important;
+            // stylelint-disable-next-line
+            height: 100% !important;
+            // stylelint-disable-next-line
+            border-radius: 50% !important;
+            box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15);
+        }
+        .iris-picker.iris-border {
+            margin-top: 20px;
+            border: none;
+
+            .iris-picker-inner {
+                top: 0;
+                right: 0;
+                bottom: 30px;
+                left: 0;
+            }
+
+            .iris-palette-container {
+                bottom: 20px;
+                left: 0;
+            }
+        }
+        .wp-picker-open + .wp-picker-input-wrap {
+            display: flex;
+
+            > label {
+                flex: 1;
+            }
+        }
+    }
+
+    /*
+     * Number Field.
+     */
+    .customize-control-kirki-number {
+        .customize-control-content .quantity {
+            padding: 0;
+            margin-left: 8px;
+            font-size: 20px;
+            font-weight: 600;
+            color: inherit;
+            background-color: #e2e4e6;
+            border: 1px solid #e2e4e6;
+
+            &:hover,
+            &:focus {
+                background-color: #d1d5d8;
+                border-color: #d1d5d8;
+            }
+        }
+    }
+
+    /*
+     * Number Slider Field.
+     */
+    .customize-control-kirki-slider .wrapper {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .slider-reset {
+            top: 8px;
+            right: -22px;
+            opacity: .5;
+
+            &:hover {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        input[type="range"] {
+            height: 3px;
+            background-color: #d1d5d8;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            width: 13px;
+            height: 13px;
+            background-color: #007cba;
+            border: none;
+        }
+        ​input[type="range"]::-webkit-slider-thumb:hover {
+            background-color: #007cba;
+            border: none;
+        }
+        input[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+        input[type="text"] {
+            padding: 0 5px;
+            margin-left: 10px;
+            background-color: #e2e4e6;
+            border: 1px solid #d1d5d8;
+        }
+    }
+
+    /*
+     * Text Field.
+     */
+    .customize-control-kirki-generic [type="kirki-generic"] {
+        min-height: 30px;
+        padding: 0 8px;
+        line-height: 2;
+        color: #32373c;
+        background-color: #fff;
+        border: 1px solid #7e8993;
+        border-radius: 4px;
+        box-shadow: 0 0 0 transparent;
+    }
+
+    /*
+     * Image and Upload Fields.
+     */
+    .customize-control-kirki-image,
+    .customize-control-upload {
+        // Preview Image.
+        .image-wrapper,
+        .attachment-media-view-image {
+            position: relative;
+
+            .thumbnail {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 70px;
+                background-color: #e2e4e6;
+                border-radius: 6px;
+                box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);
+
+                img {
+                    max-height: 500px;
+                    cursor: default;
+                    transition: .2s opacity;
+                }
+
+                ~ .actions {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    margin-top: -6px;
+                    text-align: center;
+                    opacity: 0;
+                    transition: .2s opacity;
+                    transform: translateY(-50%);
+                }
+            }
+            &:hover .thumbnail,
+            &:focus .thumbnail {
+                img {
+                    opacity: .5;
+                }
+                ~ .actions {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // Placeholder.
+        .image-wrapper .placeholder {
+            display: none;
+        }
+        .image-wrapper .placeholder ~ .actions .image-upload-button,
+        .attachment-media-view .button-add-media {
+            width: 100%;
+            min-height: 70px;
+            color: inherit;
+            border: 1px dashed #a1a4a7;
+            border-radius: 5px;
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                border-color: #737779;
+            }
+        }
+    }
+
+    /*
+     * Select Field.
+     */
+    .customize-control-kirki-select,
+    .repeater-field-select {
+        .select2-container--default .select2-selection--single {
+            min-height: 30px;
+            padding: 0 4px;
+            line-height: 2;
+            color: #32373c;
+            background-color: #fff;
+            border: 1px solid #7e8993;
+            border-radius: 4px;
+            box-shadow: 0 0 0 transparent;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            right: 3px;
+            width: 26px;
+            height: 28px;
+        }
+    }
+
+    /*
+     * Repeater Field.
+     */
+    .customize-control-repeater {
+        .repeater-row-header {
+            border-bottom: none;
+        }
+        .repeater-field {
+            border-bottom: none;
+        }
+        .repeater-fields {
+            .repeater-row,
+            .repeater-row.minimized {
+                border-color: #d1d5d8;
+            }
+        }
+    }
+}
+
+/*
+ * Select2 Dropdown
+ */
+.select2-container--default .select2-dropdown {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    border: none;
+    // stylelint-disable-next-line
+    border-radius: 5px !important;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .08), 0 0 1px 1px rgba(0, 0, 0, .02);
+
+    .select2-search--dropdown {
+        padding: 10px;
+        padding-bottom: 0;
+    }
+    .select2-search--dropdown .select2-search__field {
+        padding: 1px 10px;
+    }
+    .select2-results__options {
+        padding: 10px;
+    }
+
+    .select2-results__option {
+        padding: 7px 10px;
+        border-radius: 4px;
+    }
+
+    .select2-results__option--highlighted[data-selected] {
+        color: inherit;
+        background-color: #eee;
+    }
+    .select2-results__option[data-selected="true"] {
+        color: #fff;
+        background-color: #007cba;
+    }
+}

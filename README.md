@@ -22,7 +22,7 @@ Ghost_Framework::add_tgmpa( array(
 ) );
 ```
 
-## Work with Kirki options (save default options in array)
+## Customizer Options
 
 ```php
 Ghost_Framework::add_config( array(
@@ -30,60 +30,59 @@ Ghost_Framework::add_config( array(
     'option_type' => 'theme_mod',
 ) );
 
-Ghost_Framework::add_section( 'section_name', array(
-    'title'    => esc_html__( 'Section Title', '@@text_domain' ),
-    'priority' => 10,
-) );
+// Panel.
+Ghost_Framework::add_panel(
+    'panel_name',
+    array(
+        'title'    => esc_html__( 'Panel Title', '@@text_domain' ),
+        'icon'     => 'dashicons-heart',
+    )
+);
 
-Ghost_Framework::add_panel( 'panel_name', array(
-    'title'    => esc_html__( 'Panel Title', '@@text_domain' ),
-    'icon'     => 'fa fa-bars',
-    'priority' => 11,
-) );
+// Section.
+Ghost_Framework::add_section(
+    'section_name',
+    array(
+        'title'    => esc_html__( 'Section Title', '@@text_domain' ),
+        'panel'    => 'panel_name',
+        'priority' => 20,
+    )
+);
 
+// Toggle Field.
 Ghost_Framework::add_field( array(
-    'type'     => 'toggle',
-    'settings' => 'option_name',
-    'label'    => esc_html__( 'Label', '@@text_domain' ),
-    'section'  => 'section_name',
-    'default'  => 'on',
-    'priority' => 10
+    'type'        => 'toggle',
+    'settings'    => 'toggle_option_name',
+    'label'       => esc_html__( 'Toggle Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section'     => 'section_name',
+    'default'     => 'on',
 ) );
 
+// Image Field.
 Ghost_Framework::add_field( array(
-     'type' => 'image',
-     'settings' => 'option_name',
-     'label' => esc_html__( 'Label', '@@text_domain' ),
-     'description' => esc_html__( 'Description', '@@text_domain' ),
-     'section' => 'section_name',
+    'type'        => 'image',
+    'settings'    => 'image_option_name',
+    'label'       => esc_html__( 'Image Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section'     => 'section_name',
 ) );
 
+// Color Field.
 Ghost_Framework::add_field( array(
-     'type' => 'color',
-     'settings' => 'option_name',
-     'label' => esc_html__( 'Label', '@@text_domain' ),
-     'description' => esc_html__( 'Description', '@@text_domain' ),
-     'section' => 'section_name',
+    'type'        => 'color',
+    'settings'    => 'color_option_name',
+    'label'       => esc_html__( 'Color Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section'     => 'section_name',
 ) );
 
-Ghost_Framework::add_field( array(
-     'type'        => 'number',
-     'settings'    => 'option_name',
-     'label' => esc_html__( 'Label', '@@text_domain' ),
-     'description' => esc_html__( 'Description', '@@text_domain' ),
-     'section'     => 'section_name',
-     'default'     => 42,
-     'choices'     => array(
-         'min'  => 0,
-         'max'  => 80,
-         'step' => 1,
-     ),
-) );
-
+// Number Slider Field.
 Ghost_Framework::add_field( array(
     'type'        => 'slider',
-    'settings'    => 'option_name',
-    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'settings'    => 'slider_option_name',
+    'label'       => esc_html__( 'Number Slider Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
     'section'     => 'section_name',
     'default'     => 42,
     'choices'     => array(
@@ -93,52 +92,27 @@ Ghost_Framework::add_field( array(
     ),
 ) );
 
+// Number Field.
 Ghost_Framework::add_field( array(
-    'type' => 'repeater',
-    'settings' => 'option_name',
-    'label' => esc_html__( 'Label', '@@text_domain' ),
-    'section' => 'section_name',
-    'priority' => 10,
-    'row_label' => array(
-        'type' => 'text',
-        'value' => esc_attr__( 'Example', '@@text_domain' ),
-    ),
-    'button_label' => esc_attr__( '"Add new" Example (optional) ', '@@text_domain' ),
-    'default' => array(
-        array(
-            'url' => '#',
-            'target' => '_self',
-        ),
-        array(
-            'url' => '#',
-            'target' => '_self',
-        ),
-    ),
-    'fields' => array(
-        'url' => array(
-            'type' => 'text',
-            'label' => esc_attr__( 'Link URL', '@@text_domain' ),
-            'description' => esc_attr__( 'This will be the link URL', '@@text_domain' ),
-            'default' => '',
-        ),
-        'target' => array(
-            'type' => 'select',
-            'label' => esc_html__( 'Target', '@@text_domain' ),
-            'default' => '_blank',
-            'choices' => array(
-                '_blank' => esc_attr__( 'Blank', '@@text_domain' ),
-                '_self' => esc_attr__( 'Self', '@@text_domain' ),
-                '_parent' => esc_attr__( 'Parent', '@@text_domain' ),
-                '_top' => esc_attr__( 'Top', '@@text_domain' ),
-            ),
-        ),
+    'type'        => 'number',
+    'settings'    => 'number_option_name',
+    'label'       => esc_html__( 'Number Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section'     => 'section_name',
+    'default'     => 42,
+    'choices'     => array(
+        'min'  => 0,
+        'max'  => 80,
+        'step' => 1,
     ),
 ) );
 
+// Select Field.
 Ghost_Framework::add_field( array(
     'type'        => 'select',
-    'settings'    => 'option_name',
-    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'settings'    => 'select_option_name',
+    'label'       => esc_html__( 'Select Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
     'section'     => 'section_name',
     'default'     => 'option-1',
     'choices'     => array(
@@ -149,21 +123,76 @@ Ghost_Framework::add_field( array(
     ),
 ) );
 
+// Text Field.
 Ghost_Framework::add_field( array(
-    'type' => 'text',
-    'settings' => 'option_name',
-    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'type'        => 'text',
+    'settings'    => 'text_option_name',
+    'label'       => esc_html__( 'Text Field', '@@text_domain' ),
     'description' => esc_html__( 'Description', '@@text_domain' ),
-    'section' => 'section_name',
-    'default' => 'Test Value',
+    'section'     => 'section_name',
+    'default'     => 'Test Value',
 ) );
 
+// Upload Field.
 Ghost_Framework::add_field( array(
-    'type' => 'upload',
-    'settings' => 'option_name',
-    'label' => esc_html__( 'Label', '@@text_domain' ),
+    'type'        => 'upload',
+    'settings'    => 'upload_option_name',
+    'label'       => esc_html__( 'Upload Field', '@@text_domain' ),
     'description' => esc_html__( 'Description', '@@text_domain' ),
-    'section' => 'section_name',
+    'section'     => 'section_name',
+) );
+
+// Editor Field.
+Ghost_Framework::add_field( array(
+    'type'        => 'editor',
+    'settings'    => 'editor_option_name',
+    'label'       => esc_html__( 'Editor Field', '@@text_domain' ),
+    'description' => esc_html__( 'Description', '@@text_domain' ),
+    'section'     => 'section_name',
+) );
+
+// Repeater Field.
+Ghost_Framework::add_field( array(
+    'type'         => 'repeater',
+    'settings'     => 'repeater_option_name',
+    'label'        => esc_html__( 'Repeater Field', '@@text_domain' ),
+    'description'  => esc_html__( 'Description', '@@text_domain' ),
+    'section'      => 'section_name',
+    'priority'     => 10,
+    'row_label'    => array(
+        'type'  => 'text',
+        'value' => esc_attr__( 'Example', '@@text_domain' ),
+    ),
+    'button_label' => esc_attr__( '"Add new" Example (optional) ', '@@text_domain' ),
+    'default'      => array(
+        array(
+            'url'    => '#',
+            'target' => '_self',
+        ),
+        array(
+            'url'    => '#',
+            'target' => '_self',
+        ),
+    ),
+    'fields'       => array(
+        'url'    => array(
+            'type'        => 'text',
+            'label'       => esc_attr__( 'Link URL', '@@text_domain' ),
+            'description' => esc_attr__( 'This will be the link URL', '@@text_domain' ),
+            'default'     => '',
+        ),
+        'target' => array(
+            'type'    => 'select',
+            'label'   => esc_html__( 'Target', '@@text_domain' ),
+            'default' => '_blank',
+            'choices' => array(
+                '_blank'  => esc_attr__( 'Blank', '@@text_domain' ),
+                '_self'   => esc_attr__( 'Self', '@@text_domain' ),
+                '_parent' => esc_attr__( 'Parent', '@@text_domain' ),
+                '_top'    => esc_attr__( 'Top', '@@text_domain' ),
+            ),
+        ),
+    ),
 ) );
 
 $option_value = Ghost_Framework::get_theme_mod( $name, $use_acf, $post_id, $acf_name );

@@ -79,3 +79,13 @@ require_once wp_normalize_path( dirname( __FILE__ ) . '/lib/class-aricolor.php' 
 // Add an empty config for global fields.
 Ghost_Framework_Kirki::add_config( '' );
 
+// Assets for Customizer.
+function ghost_framework_kirki_styles() {
+    global $wp_customize;
+
+    if ( isset( $wp_customize ) ) {
+        wp_enqueue_style( 'ghost-framework-kirki', Ghost_Framework_Kirki::$url . 'assets/css/customizer.css', array(), '@@plugin_version' );
+    }
+}
+
+add_action( 'admin_enqueue_scripts', 'ghost_framework_kirki_styles' );
