@@ -74,6 +74,16 @@
         }
     }
 
+    // Core Fields.
+    .control-section-default .customize-control,
+    .control-section-nav_menu .customize-control,
+    .control-section-sidebar .customize-control {
+        padding: 0 10px;
+    }
+    .section-meta .description {
+        padding: 0 10px;
+    }
+
     /*
      * Toggle Field.
      */
@@ -118,8 +128,10 @@
      */
     .customize-control-kirki-color {
         position: relative;
-        padding-right: 30px;
 
+        .kirki-input-container {
+            padding-right: 30px;
+        }
         .wp-picker-container {
             display: block;
         }

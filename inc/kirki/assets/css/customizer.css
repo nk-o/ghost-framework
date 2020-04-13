@@ -93,6 +93,14 @@
   width: 100%;
   clear: both;
 }
+#customize-controls .control-section-default .customize-control,
+#customize-controls .control-section-nav_menu .customize-control,
+#customize-controls .control-section-sidebar .customize-control {
+  padding: 0 10px;
+}
+#customize-controls .section-meta .description {
+  padding: 0 10px;
+}
 #customize-controls .customize-control-kirki-toggle .switch {
   position: absolute;
   top: 12px;
@@ -132,6 +140,8 @@
 }
 #customize-controls .customize-control-kirki-color {
   position: relative;
+}
+#customize-controls .customize-control-kirki-color .kirki-input-container {
   padding-right: 30px;
 }
 #customize-controls .customize-control-kirki-color .wp-picker-container {
