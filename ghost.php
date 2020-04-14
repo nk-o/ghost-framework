@@ -767,7 +767,7 @@ class Ghost_Framework {
                 }
                 if ( is_category() ) {
                     $this_cat = get_category( get_query_var( 'cat' ), false );
-                    if ( 0 != $this_cat->parent ) {
+                    if ( is_object( $this_cat ) && ! isset( $this_cat->errors ) && 0 != $this_cat->parent ) {
                         $cats = get_category_parents( $this_cat->parent, true, $args['delimiter'] );
                         $cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
                         $cats = str_replace( '</a>', '</a>' . $link_after, $cats );
@@ -776,7 +776,7 @@ class Ghost_Framework {
                     $result .= $args['before'] . sprintf( esc_html( $args['category'] ), single_cat_title( '', false ) ) . $sub_result . $args['after'];
                 } elseif ( is_tax() ) {
                     $this_cat = get_category( get_query_var( 'cat' ), false );
-                    if ( 0 != $this_cat->parent ) {
+                    if ( is_object( $this_cat ) && ! isset( $this_cat->errors ) && 0 != $this_cat->parent ) {
                         $cats = get_category_parents( $this_cat->parent, true, $args['delimiter'] );
                         $cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
                         $cats = str_replace( '</a>', '</a>' . $link_after, $cats );
