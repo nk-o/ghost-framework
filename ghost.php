@@ -89,6 +89,7 @@ class Ghost_Framework {
                 'class-fonts.php',
                 'class-typography.php',
                 'class-brand-svg.php',
+                'class-templates.php',
             );
             foreach ( $classes_include as $inc ) {
                 require_once self::$framework_path . '/inc/' . $inc;
@@ -144,6 +145,9 @@ class Ghost_Framework {
         // compile scss.
         add_action( 'customize_preview_init', array( __CLASS__, 'maybe_compile_scss' ) );
         add_action( 'customize_save_after', array( __CLASS__, 'maybe_compile_scss' ) );
+
+        // Init templates loader.
+        add_action( 'init', 'Ghost_Framework_Templates::init' );
 
         // Visual Composer as theme.
         add_action( 'vc_before_init', array( __CLASS__, 'action_vc_set_as_theme' ) );
@@ -507,6 +511,27 @@ class Ghost_Framework {
             $classes .= self::$admin_body_class;
         }
         return $classes;
+    }
+
+    /**
+     * Add template.
+     *
+     * @param string  $hook_name - hook name.
+     * @param string  $template_path - template path.
+     * @param integer $priority - priority.
+     */
+    public static function add_template( $hook_name, $template_path, $priority = 10 ) {
+        Ghost_Framework_Templates::add_template( $hook_name, $template_path, $priority );
+    }
+
+    /**
+     * Remove template.
+     *
+     * @param string $hook_name - hook name.
+     * @param string $template_path - template path.
+     */
+    public static function remove_template( $hook_name, $template_path ) {
+        Ghost_Framework_Templates::remove_template( $hook_name, $template_path );
     }
 
     /**

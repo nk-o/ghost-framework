@@ -258,6 +258,22 @@ In file `/assets/css/@@theme_name-custom.php` you can use options from customize
 
 Usage example see in `functions.php` file
 
+## Templates
+
+We can include template parts of the theme using hooks.
+
+### Add Template
+
+```php
+Ghost_Framework::add_template( 'ghost_site_before', '/template-parts/site-general/skip-links', 5 );
+```
+
+### Remove Template
+
+```php
+Ghost_Framework::remove_template( 'ghost_site_before', '/template-parts/site-general/skip-links' );
+```
+
 ## Brand SVG
 
 ### Get brand SVG string
