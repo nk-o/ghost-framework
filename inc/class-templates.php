@@ -58,7 +58,7 @@ class Ghost_Framework_Templates {
         }
 
         foreach ( self::$registered_templates as $hook_name => $data ) {
-            add_action( $hook_name, 'Ghost_Template::include_template' );
+            add_action( $hook_name, 'Ghost_Framework_Templates::include_template' );
         }
     }
 
