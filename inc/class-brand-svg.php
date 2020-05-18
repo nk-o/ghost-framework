@@ -93,8 +93,17 @@ class Ghost_Framework_Brand_Svg {
                 'title' => true,
             ),
             'path'  => array(
-                'd'    => true,
-                'fill' => true,
+                'd'         => true,
+                'fill'      => true,
+                'fill-rule' => true,
+                'transform' => true,
+            ),
+            'polygon' => array(
+                'fill'      => true,
+                'fill-rule' => true,
+                'points'    => true,
+                'transform' => true,
+                'focusable' => true,
             ),
         );
     }
