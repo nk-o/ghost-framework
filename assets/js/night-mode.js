@@ -2,6 +2,7 @@
     const {
         ghostFrameworkNightMode,
         localStorage,
+        jQuery: $,
     } = window;
 
     if ( 'undefined' === typeof ghostFrameworkNightMode ) {
