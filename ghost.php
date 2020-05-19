@@ -89,6 +89,7 @@ class Ghost_Framework {
                 'class-fonts.php',
                 'class-typography.php',
                 'class-brand-svg.php',
+                'class-night-mode.php',
                 'class-templates.php',
             );
             foreach ( $classes_include as $inc ) {
@@ -441,6 +442,13 @@ class Ghost_Framework {
                 nk_theme()->scss( $scss['compiled_filename'], dirname( $scss['src'] ), $scss_content );
             }
         }
+    }
+
+    /**
+     * Enable Night Mode.
+     */
+    public static function night_mode( $attributes = array() ) {
+        Ghost_Framework_Night_Mode::init( $attributes );
     }
 
     /**

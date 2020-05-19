@@ -274,6 +274,19 @@ Ghost_Framework::add_template( 'ghost_site_before', '/template-parts/site-genera
 Ghost_Framework::remove_template( 'ghost_site_before', '/template-parts/site-general/skip-links' );
 ```
 
+## Night Mode
+
+Enable night mode, that will add script for switching mode automatically.
+
+```php
+Ghost_Framework::night_mode( array(
+    'is_default_night' => false,
+    'night_class'      => 'ghost-night-mode',
+    'switching_class'  => 'ghost-night-mode-switching',
+    'toggle_selector'  => '.ghost-night-mode-toggle',
+) );
+```
+
 ## Brand SVG
 
 ### Get brand SVG string
