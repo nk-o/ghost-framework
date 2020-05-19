@@ -280,10 +280,11 @@ Enable night mode, that will add script for switching mode automatically.
 
 ```php
 Ghost_Framework::night_mode( array(
-    'is_default_night' => false,
-    'night_class'      => 'ghost-night-mode',
-    'switching_class'  => 'ghost-night-mode-switching',
-    'toggle_selector'  => '.ghost-night-mode-toggle',
+    'is_default_night'  => false,
+    'use_local_storage' => true,
+    'night_class'       => 'ghost-night-mode',
+    'switching_class'   => 'ghost-night-mode-switching',
+    'toggle_selector'   => '.ghost-night-mode-toggle',
 ) );
 ```
 

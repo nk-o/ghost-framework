@@ -16,7 +16,7 @@
         const storedState = localStorage.getItem( ghostFrameworkNightMode.night_class );
         let isNight = !! ghostFrameworkNightMode.is_default_night;
 
-        if ( storedState ) {
+        if ( ghostFrameworkNightMode.use_local_storage && storedState ) {
             isNight = 'night' === storedState;
         }
 
