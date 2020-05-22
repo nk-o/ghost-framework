@@ -181,9 +181,13 @@ class Ghost_Framework {
 
     /**
      * Add Mega menu checkbox in nav editor.
+     *
+     * @param boolean|array $data - additional data.
      */
-    public static function add_mega_menu() {
+    public static function add_mega_menu( $data = false ) {
         require_once self::$framework_path . '/inc/class-menu-backend-walker.php';
+
+        new Ghost_Framework_Backend_Menu( $data );
     }
 
     /**

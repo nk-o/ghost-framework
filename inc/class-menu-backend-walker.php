@@ -16,13 +16,44 @@
  */
 class Ghost_Framework_Backend_Menu {
     /**
-     * Ghost_Framework_Backend_Menu constructor.
+     * Menu data.
+     *
+     * @var array
      */
-    public function __construct() {
+    public $data = array(
+        'mega_menu_class' => 'ghost-mega-menu',
+    );
+
+    /**
+     * Ghost_Framework_Backend_Menu constructor.
+     *
+     * @param boolean|array $data - additional data.
+     */
+    public function __construct( $data = false ) {
+        global $wp_version;
+
         add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'wp_nav_menu_item_custom_fields' ), 10, 4 );
         add_filter( 'wp_setup_nav_menu_item', array( $this, 'wp_setup_nav_menu_item' ) );
         add_action( 'wp_update_nav_menu_item', array( $this, 'wp_update_nav_menu_item' ), 10, 3 );
-        add_filter( 'wp_edit_nav_menu_walker', array( $this, 'wp_edit_nav_menu_walker' ), 10, 2 );
+
+        if ( $data ) {
+            $this->data = array_merge(
+                $this->data,
+                $data
+            );
+        }
+
+        // Add frontend menu classes.
+        add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 2 );
+
+        /**
+         * Add custom action for WordPress < 5.4.
+         * Since WordPress 5.4 this action already available
+         * https://make.wordpress.org/core/2020/02/25/wordpress-5-4-introduces-new-hooks-to-add-custom-fields-to-menu-items/
+         */
+        if ( version_compare( $wp_version, '5.4.0', '<' ) ) {
+            add_filter( 'wp_edit_nav_menu_walker', array( $this, 'wp_edit_nav_menu_walker_fallback' ), 10, 2 );
+        }
     }
 
     /**
@@ -72,24 +103,42 @@ class Ghost_Framework_Backend_Menu {
     }
 
     /**
-     * Use custom class for backend menu walker.
+     * Add mega menu classes to items.
+     *
+     * @param array $classes - menu id.
+     * @param array $item - menu item id.
+     */
+    public function nav_menu_css_class( $classes, $item ) {
+        if ( isset( $item->ID ) ) {
+            $ghost_mega_menu = get_post_meta( $item->ID, '_menu_item_ghost_mega_menu', true );
+
+            if ( $ghost_mega_menu ) {
+                $classes[] = $this->data['mega_menu_class'];
+            }
+        }
+
+        return $classes;
+    }
+
+    /**
+     * Add custom action for WordPress < 5.4.
+     * Since WordPress 5.4 this action already available
+     * https://make.wordpress.org/core/2020/02/25/wordpress-5-4-introduces-new-hooks-to-add-custom-fields-to-menu-items/
      *
      * @param object $walker - menu walker.
      * @param int    $menu_id - menu id.
      * @return string
      */
-    public function wp_edit_nav_menu_walker( $walker, $menu_id ) {
-        return 'Ghost_Framework_Backend_Menu_Walker';
+    public function wp_edit_nav_menu_walker_fallback( $walker, $menu_id ) {
+        return 'Ghost_Framework_Backend_Menu_Walker_Fallback';
     }
 }
-new Ghost_Framework_Backend_Menu();
-
 
 /**
  * Extend Walker_Nav_Menu class to override default menu.
  * extends from Walker_Nav_Menu, because Walker_Nav_Menu_Edit don't available.
  */
-class Ghost_Framework_Backend_Menu_Walker extends Walker_Nav_Menu {
+class Ghost_Framework_Backend_Menu_Walker_Fallback extends Walker_Nav_Menu {
     /**
      * Start the level output.
      *
