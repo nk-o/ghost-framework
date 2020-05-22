@@ -1,0 +1,9 @@
+/**
+ * Hide mega menu option from menu items with depth > 0
+ */
+.field-link-ghost-mega-menu {
+    display: none;
+}
+#menu-to-edit > .menu-item-depth-0 > div > .field-link-ghost-mega-menu {
+    display: block;
+}

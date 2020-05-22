@@ -132,6 +132,9 @@ class Ghost_Framework {
         add_filter( 'body_class', array( __CLASS__, 'filter_body_class' ) );
         add_filter( 'admin_body_class', array( __CLASS__, 'filter_admin_body_class' ) );
 
+        // admin styles.
+        add_action( 'admin_enqueue_scripts', array( __CLASS__, 'admin_enqueue_scripts' ) );
+
         // add registered Kirki options.
         add_action( 'after_setup_theme', array( __CLASS__, 'maybe_add_kirki_options' ), 9 );
 
@@ -155,6 +158,13 @@ class Ghost_Framework {
 
         // Revolution Slider as theme.
         add_action( 'init', array( __CLASS__, 'action_rev_set_as_theme' ) );
+    }
+
+    /**
+     * Admin assets.
+     */
+    public static function admin_enqueue_scripts() {
+        wp_enqueue_style( 'ghost_admin', self::$framework_url . '/assets/css/admin.css', array(), '@@theme_version' );
     }
 
     /**

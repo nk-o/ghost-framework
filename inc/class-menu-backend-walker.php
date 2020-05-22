@@ -44,7 +44,7 @@ class Ghost_Framework_Backend_Menu {
         }
 
         // Add frontend menu classes.
-        add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 2 );
+        add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 4 );
 
         /**
          * Add custom action for WordPress < 5.4.
@@ -106,11 +106,13 @@ class Ghost_Framework_Backend_Menu {
      * Add mega menu classes to items.
      *
      * @param array $classes - menu id.
-     * @param array $item - menu item id.
+     * @param class $item - menu item id.
+     * @param class $args - menu item args.
+     * @param int   $depth - menu item depth.
      */
-    public function nav_menu_css_class( $classes, $item ) {
-        if ( isset( $item->ID ) ) {
-            $ghost_mega_menu = get_post_meta( $item->ID, '_menu_item_ghost_mega_menu', true );
+    public function nav_menu_css_class( $classes, $item, $args, $depth ) {
+        if ( isset( $item->ID ) & 0 === $depth ) {
+            $ghost_mega_menu = 'on' === get_post_meta( $item->ID, '_menu_item_ghost_mega_menu', true );
 
             if ( $ghost_mega_menu ) {
                 $classes[] = $this->data['mega_menu_class'];
