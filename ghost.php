@@ -466,10 +466,70 @@ class Ghost_Framework {
     }
 
     /**
-     * Return Brand SVG Class.
+     * Get Brand SVG icon.
+     *
+     * @param String $name - brand name.
+     * @param Array  $data - svg icon data.
+     *
+     * @return String
      */
-    public static function brand_svg() {
-        return 'Ghost_Framework_Brand_Svg';
+    public static function brand_svg( $name, $data = array() ) {
+        return Ghost_Framework_Brand_Svg::get( $name, $data );
+    }
+
+    /**
+     * Print Brand SVG icon.
+     *
+     * @param String $name - brand name.
+     * @param Array  $data - svg icon data.
+     *
+     * @return String
+     */
+    public static function brand_svg_e( $name, $data = array() ) {
+        return Ghost_Framework_Brand_Svg::get_e( $name, $data );
+    }
+
+    /**
+     * Get Brand SVG name.
+     *
+     * @param String $name - brand name.
+     *
+     * @return String
+     */
+    public static function brand_svg_name( $name ) {
+        return Ghost_Framework_Brand_Svg::get_name( $name );
+    }
+
+    /**
+     * Check if Brand SVG exists.
+     *
+     * @param String $name - brand name.
+     *
+     * @return Boolean
+     */
+    public static function brand_svg_exists( $name ) {
+        return Ghost_Framework_Brand_Svg::exists( $name );
+    }
+
+    /**
+     * Get Brand SVG kses data.
+     *
+     * @return Array
+     */
+    public static function brand_svg_kses() {
+        return Ghost_Framework_Brand_Svg::kses();
+    }
+
+    /**
+     * Get Brand SVG all available brands.
+     *
+     * @param Boolean $get_svg - get SVG and insert it inside array.
+     * @param Array   $svg_data - svg data.
+     *
+     * @return Array
+     */
+    public static function brand_svg_all( $get_svg = false, $svg_data = array() ) {
+        return Ghost_Framework_Brand_Svg::get_all_brands( $get_svg, $svg_data );
     }
 
     /**

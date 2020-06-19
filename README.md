@@ -293,20 +293,20 @@ Ghost_Framework::night_mode( array(
 ### Get brand SVG string
 
 ```php
-$icon = Ghost_Framework::brand_svg()::get( 'facebook' );
+$icon = Ghost_Framework::brand_svg( 'facebook' );
 ```
 
 ### Get brand name string
 
 ```php
-$name = Ghost_Framework::brand_svg()::get_name( 'facebook' );
+$name = Ghost_Framework::brand_svg_name( 'facebook' );
 // returns 'Facebook'
 ```
 
 ### Check if brand exists
 
 ```php
-if ( Ghost_Framework::brand_svg()::exists( 'facebook' ) ) {
+if ( Ghost_Framework::brand_svg_exists( 'facebook' ) ) {
     ...
 }
 ```
@@ -316,22 +316,22 @@ if ( Ghost_Framework::brand_svg()::exists( 'facebook' ) ) {
 Auto:
 
 ```php
-Ghost_Framework::brand_svg()::get_e( 'facebook' );
+Ghost_Framework::brand_svg_e( 'facebook' );
 ```
 
 Manual:
 
 ```php
-if ( Ghost_Framework::brand_svg()::exists( 'facebook' ) ) {
-    $icon = Ghost_Framework::brand_svg()::get( 'facebook' );
-    echo wp_kses( $icon, Ghost_Framework::brand_svg()::kses() );
+if ( Ghost_Framework::brand_svg_exists( 'facebook' ) ) {
+    $icon = Ghost_Framework::brand_svg( 'facebook' );
+    echo wp_kses( $icon, Ghost_Framework::brand_svg_kses() );
 }
 ```
 
 ### Get all available brands
 
 ```php
-$brands = Ghost_Framework::brand_svg()::get_all_brands();
+$brands = Ghost_Framework::brand_svg_all();
 ```
 
 ## Add theme dashboard
