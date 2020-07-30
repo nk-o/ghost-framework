@@ -225,8 +225,12 @@ class Ghost_Framework_Fonts {
         $result = get_transient( 'ghost_framework_google_fonts_list' );
 
         if ( ! $result ) {
-            $result       = array();
-            $fonts_json   = file_get_contents( Ghost_Framework::get_path() . '/inc/google-fonts/webfonts.json' ); // phpcs:ignore
+            $result = array();
+
+            ob_start();
+            include Ghost_Framework::get_path() . '/inc/google-fonts/webfonts.json';
+            $fonts_json = ob_get_clean();
+
             $fonts_object = json_decode( $fonts_json, true );
 
             foreach ( $fonts_object['items'] as $font ) {

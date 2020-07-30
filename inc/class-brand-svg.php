@@ -154,8 +154,9 @@ class Ghost_Framework_Brand_Svg {
         );
 
         if ( file_exists( $path ) ) {
-            // phpcs:ignore
-            $svg = file_get_contents( $path );
+            ob_start();
+            include $path;
+            $svg = ob_get_clean();
 
             // Add extra attributes to SVG code.
             // translators: %1$s - classname.
