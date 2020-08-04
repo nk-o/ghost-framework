@@ -685,7 +685,15 @@ class Ghost_Framework {
     public static function get_image( $attachment_id, $size = 'thumbnail', $icon = false, $attr = array() ) {
         $image_id = $attachment_id;
 
-        if ( filter_var( filter_var( $attachment_id, FILTER_SANITIZE_URL ), FILTER_VALIDATE_URL ) ) {
+        if (
+            is_string( $attachment_id ) &&
+            (
+                filter_var( $attachment_id, FILTER_VALIDATE_URL ) ||
+
+                // Simple check for slashes in relative URL.
+                strpos( $attachment_id, '/' ) !== false
+            )
+        ) {
             // @codingStandardsIgnoreLine
             $image_id = attachment_url_to_postid( $attachment_id );
 
