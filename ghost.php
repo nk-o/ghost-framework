@@ -923,6 +923,9 @@ class Ghost_Framework {
                                 $label = $post_type->label;
                                 $slug['slug'] = $post_type->has_archive;
                                 break;
+                            case 'download':
+                                $label = $post_type->label;
+                                break;
                             default:
                                 $label = $post_type->labels->singular_name;
                         }
