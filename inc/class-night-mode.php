@@ -16,6 +16,7 @@ class Ghost_Framework_Night_Mode {
      */
     public static $default_attributes = array(
         'default'           => 'auto',
+        'is_editor'         => false,
         'use_local_storage' => true,
         'night_class'       => 'ghost-night-mode',
         'switching_class'   => 'ghost-night-mode-switching',
@@ -43,6 +44,7 @@ class Ghost_Framework_Night_Mode {
         );
 
         add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wp_enqueue_scripts' ) );
+        add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
     }
 
     /**
@@ -50,6 +52,16 @@ class Ghost_Framework_Night_Mode {
      */
     public static function wp_enqueue_scripts() {
         wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery' ), '@@theme_version', false );
+        wp_localize_script( 'ghost-framework-night-mode', 'ghostFrameworkNightMode', self::$attributes );
+    }
+
+    /**
+     * Enqueue block editor assets.
+     */
+    public static function enqueue_block_editor_assets() {
+        self::$attributes['is_editor'] = true;
+
+        wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery', 'wp-element', 'wp-plugins' ), '@@theme_version', false );
         wp_localize_script( 'ghost-framework-night-mode', 'ghostFrameworkNightMode', self::$attributes );
     }
 }

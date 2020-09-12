@@ -10,10 +10,14 @@
         return;
     }
 
-    const $html = $( 'html' );
     const $doc = $( document );
+    let $html = ghostFrameworkNightMode.is_editor ? $( '.editor-styles-wrapper' ) : $( 'html' );
 
     function switchMode( toggle = true ) {
+        if ( ! $html ) {
+            return;
+        }
+
         const storedState = localStorage.getItem( ghostFrameworkNightMode.night_class );
         let defaultValue = ghostFrameworkNightMode.default;
 
@@ -23,7 +27,7 @@
 
             // Get system color scheme.
         } else if ( matchMedia && 'auto' === defaultValue ) {
-            defaultValue = matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+            defaultValue = matchMedia( '(prefers-color-scheme: dark)' ).matches ? 'night' : 'day';
         }
 
         // Toggle night mode.
@@ -59,7 +63,33 @@
     }
 
     // Set default state.
-    switchMode( false );
+    if ( ghostFrameworkNightMode.is_editor ) {
+        const {
+            Component,
+        } = wp.element;
+
+        const {
+            registerPlugin,
+        } = wp.plugins;
+
+        class EditorNightMode extends Component {
+            componentDidMount() {
+                $html = $( '.editor-styles-wrapper' );
+
+                switchMode( false );
+            }
+
+            render() {
+                return null;
+            }
+        }
+
+        registerPlugin( 'ghost-framework-editor-night-mode', {
+            render: EditorNightMode,
+        } );
+    } else {
+        switchMode( false );
+    }
 
     // Toggle state when switched system color scheme.
     if ( matchMedia ) {
