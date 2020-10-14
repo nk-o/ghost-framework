@@ -45,6 +45,8 @@ class Ghost_Framework_Night_Mode {
 
         add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wp_enqueue_scripts' ) );
         add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
+
+        add_action( 'autoptimize_filter_js_exclude', array( __CLASS__, 'autoptimize_filter_js_exclude' ) );
     }
 
     /**
@@ -63,5 +65,20 @@ class Ghost_Framework_Night_Mode {
 
         wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery', 'wp-element', 'wp-plugins' ), '@@theme_version', false );
         wp_localize_script( 'ghost-framework-night-mode', 'ghostFrameworkNightMode', self::$attributes );
+    }
+
+    /**
+     * Exclude night mode script from autoptimize.
+     *
+     * @param string|array $exclude_js - exclude JS files.
+     *
+     * @return string|array
+     */
+    public static function autoptimize_filter_js_exclude( $exclude_js ) {
+        if ( is_string( $exclude_js ) ) {
+            $exclude_js .= ( $exclude_js ? ',' : '' ) . '/ghost-framework/assets/js/night-mode.min.js';
+        }
+
+        return $exclude_js;
     }
 }
