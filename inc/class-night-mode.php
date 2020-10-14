@@ -76,7 +76,7 @@ class Ghost_Framework_Night_Mode {
      */
     public static function autoptimize_filter_js_exclude( $exclude_js ) {
         if ( is_string( $exclude_js ) ) {
-            $exclude_js .= ( $exclude_js ? ',' : '' ) . '/ghost-framework/assets/js/night-mode.min.js';
+            $exclude_js .= ( $exclude_js ? ',' : '' ) . 'ghost-framework-night-mode-js';
         }
 
         return $exclude_js;
