@@ -1149,7 +1149,8 @@ class Ghost_Framework {
 
         foreach ( $taxonomies as $taxonomy ) {
             $terms = get_the_terms( $post_id, $taxonomy );
-            if ( empty( $terms ) ) {
+            // We skip the selection of the taxonomy of the language for the correct operation of the algorithm with the installed Polylang plugin.
+            if ( empty( $terms ) || 'language' === $taxonomy ) {
                 continue;
             }
             $term_list                   = wp_list_pluck( $terms, 'slug' );
