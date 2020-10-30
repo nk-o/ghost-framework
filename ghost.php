@@ -612,7 +612,7 @@ class Ghost_Framework {
      * @param string $hook_name - hook name.
      * @param string $template_path - template path.
      */
-    public static function remove_template( $hook_name, $template_path ) {
+    public static function remove_template( $hook_name, $template_path = '' ) {
         Ghost_Framework_Templates::remove_template( $hook_name, $template_path );
     }
 

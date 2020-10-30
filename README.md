@@ -272,6 +272,9 @@ Ghost_Framework::add_template( 'ghost_site_before', '/template-parts/site-genera
 
 ```php
 Ghost_Framework::remove_template( 'ghost_site_before', '/template-parts/site-general/skip-links' );
+
+// OR to remove all templates from the selected hook.
+Ghost_Framework::remove_template( 'ghost_site_before' );
 ```
 
 ## Night Mode

@@ -37,14 +37,23 @@ class Ghost_Framework_Templates {
      * @param string $hook_name - hook name.
      * @param string $template_path - template path.
      */
-    public static function remove_template( $hook_name, $template_path ) {
-        if ( ! isset( self::$registered_templates[ $hook_name ] ) || ! isset( self::$registered_templates[ $hook_name ][ $template_path ] ) ) {
+    public static function remove_template( $hook_name, $template_path = '' ) {
+        if ( ! isset( self::$registered_templates[ $hook_name ] ) ) {
             return;
         }
 
-        unset( self::$registered_templates[ $hook_name ][ $template_path ] );
+        // Remove selected template.
+        if ( $template_path && isset( self::$registered_templates[ $hook_name ][ $template_path ] ) ) {
+            unset( self::$registered_templates[ $hook_name ][ $template_path ] );
+        }
 
-        if ( empty( self::$registered_templates[ $hook_name ] ) ) {
+        // Remove all available templates, if template path was not specified.
+        if ( ! $template_path && ! isset( self::$registered_templates[ $hook_name ] ) ) {
+            unset( self::$registered_templates[ $hook_name ] );
+        }
+
+        // Clean templates array if empty.
+        if ( isset( self::$registered_templates[ $hook_name ] ) && empty( self::$registered_templates[ $hook_name ] ) ) {
             unset( self::$registered_templates[ $hook_name ] );
         }
     }
