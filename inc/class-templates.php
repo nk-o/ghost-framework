@@ -48,12 +48,12 @@ class Ghost_Framework_Templates {
         }
 
         // Remove all available templates, if template path was not specified.
-        if ( ! $template_path && ! isset( self::$registered_templates[ $hook_name ] ) ) {
+        if ( ! $template_path ) {
             unset( self::$registered_templates[ $hook_name ] );
         }
 
         // Clean templates array if empty.
-        if ( isset( self::$registered_templates[ $hook_name ] ) && empty( self::$registered_templates[ $hook_name ] ) ) {
+        if ( empty( self::$registered_templates[ $hook_name ] ) ) {
             unset( self::$registered_templates[ $hook_name ] );
         }
     }
