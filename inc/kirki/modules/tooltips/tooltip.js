@@ -1,6 +1,6 @@
 /* global kirkiTooltips */
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     function kirkiTooltipAdd(control) {
         _.each(kirkiTooltips, (tooltip) => {
             let trigger,

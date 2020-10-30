@@ -1,5 +1,5 @@
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     let self;
 
     self = {

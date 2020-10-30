@@ -1,6 +1,6 @@
 /* global kirkiSetSettingValue */
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     // Loop Controls.
     wp.customize.control.each((control) => {
         // Check if we have a preset defined.

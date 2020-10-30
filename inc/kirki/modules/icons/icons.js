@@ -1,6 +1,6 @@
 /* global kirkiIcons */
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     if (!_.isUndefined(kirkiIcons.section)) {
         // Parse sections and add icons.
         _.each(kirkiIcons.section, (icon, sectionID) => {

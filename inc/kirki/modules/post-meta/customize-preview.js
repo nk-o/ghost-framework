@@ -1,6 +1,6 @@
 /* global wp, _customizePostPreviewedQueriedObject */
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     const self = {
         queriedPost: (!_.isUndefined(_customizePostPreviewedQueriedObject)) ? _customizePostPreviewedQueriedObject : null,
     };

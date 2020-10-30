@@ -255,7 +255,7 @@ var kirkiPostMessage = {
     },
 };
 
-jQuery(document).ready(() => {
+jQuery(() => {
     _.each(kirkiPostMessageFields, (field) => {
         wp.customize(field.settings, (value) => {
             value.bind((newVal) => {

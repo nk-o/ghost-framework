@@ -1,5 +1,5 @@
 /* eslint-disable */
-jQuery(document).ready(() => {
+jQuery(() => {
     wp.customize.section.each((section) => {
         // Get the pane element.
         let pane = jQuery(`#sub-accordion-section-${section.id}`),

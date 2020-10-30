@@ -40,7 +40,7 @@ const kirkiCssVars = {
     },
 };
 
-jQuery(document).ready(() => {
+jQuery(() => {
     _.each(kirkiCssVarFields, (field) => {
         wp.customize(field.settings, (value) => {
             value.bind((newVal) => {

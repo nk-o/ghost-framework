@@ -202,7 +202,7 @@ const kirkiDependencies = {
     },
 };
 
-jQuery(document).ready(() => {
+jQuery(() => {
     kirkiDependencies.init();
 });
 /* eslint-enable */
