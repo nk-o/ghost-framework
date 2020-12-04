@@ -164,7 +164,7 @@ class Ghost_Framework {
      * Admin assets.
      */
     public static function admin_enqueue_scripts() {
-        wp_enqueue_style( 'ghost_admin', self::$framework_url . '/assets/css/admin.css', array(), '@@theme_version' );
+        wp_enqueue_style( 'ghost-framework-admin', self::$framework_url . '/assets/css/admin.css', array(), '@@theme_version' );
     }
 
     /**
