@@ -30,9 +30,30 @@ class Ghost_Framework_Fonts {
         $fonts = $this->get_font_loader_list();
 
         if ( is_admin() || ! empty( $fonts ) ) {
-            wp_enqueue_script( 'webfontloader', Ghost_Framework::get_url() . '/assets/vendor/webfontloader/webfontloader.js', array(), '1.6.28', false );
-            wp_enqueue_script( 'ghost-framework-fonts-loader', Ghost_Framework::get_url() . '/assets/js/fonts-loader.min.js', array( 'webfontloader' ), '@@theme_version', false );
-            wp_localize_script( 'ghost-framework-fonts-loader', 'ghostFrameworkWebfontList', $fonts );
+            $families = array();
+
+            foreach ( $fonts['google-fonts'] as $font => $font_data ) {
+                $family = $font;
+
+                if ( isset( $font_data['widths'] ) && ! empty( $font_data['widths'] ) ) {
+                    $weights = array();
+
+                    foreach ( $font_data['widths'] as $weight ) {
+                        $weights[] = $weight;
+                    }
+
+                    $family .= ':' . implode( ',', $weights );
+                }
+
+                $families[] = $family;
+            }
+
+            $query_args = array(
+                'family'  => implode( '|', $families ),
+                'display' => 'swap',
+            );
+
+            wp_enqueue_style( 'ghost-framework-fonts-google', add_query_arg( $query_args, 'https://fonts.googleapis.com/css' ), array(), '@@plugin_version' );
         }
     }
 
