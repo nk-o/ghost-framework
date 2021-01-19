@@ -985,11 +985,13 @@ class Ghost_Framework {
                 } elseif ( is_attachment() ) {
                     $parent = get_post( $post->post_parent );
                     $cat = get_the_category( $parent->ID );
-                    $cat = $cat[0];
-                    $cats = get_category_parents( $cat, true, $args['delimiter'] );
-                    $cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
-                    $cats = str_replace( '</a>', '</a>' . $link_after, $cats );
-                    $result .= $cats;
+                    if ( ! empty( $cat ) && is_array( $cat ) ) {
+                        $cat = $cat[0];
+                        $cats = get_category_parents( $cat, true, $args['delimiter'] );
+                        $cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
+                        $cats = str_replace( '</a>', '</a>' . $link_after, $cats );
+                        $result .= $cats;
+                    }
                     $result .= sprintf( $link, get_permalink( $parent ), $parent->post_title );
                     if ( 1 == $args['show_current'] ) {
                         $result .= $args['delimiter'] . $args['before'] . get_the_title() . $args['after'];
