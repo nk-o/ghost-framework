@@ -86,6 +86,7 @@ class Ghost_Framework {
             $classes_include = array(
                 'kirki/kirki.php',
                 'class-kirki-control-sidebars.php',
+                'class-kirki-control-collapsible.php',
                 'class-fonts.php',
                 'class-typography.php',
                 'class-brand-svg.php',
