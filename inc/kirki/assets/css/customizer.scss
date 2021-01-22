@@ -24,6 +24,7 @@
         background-color: transparent;
         border-bottom: none;
         border-left: none;
+        transition: none;
 
         &.dashicons-before::before {
             width: 16px;

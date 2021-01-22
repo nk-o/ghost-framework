@@ -50,6 +50,9 @@
   background-color: transparent;
   border-bottom: none;
   border-left: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 #customize-controls .accordion-section-title.dashicons-before::before {
   width: 16px;
