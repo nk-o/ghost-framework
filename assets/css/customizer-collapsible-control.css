@@ -7,14 +7,14 @@
 #customize-controls .customize-control.customize-control-collapsible {
     margin-left: -10px;
     padding: 10px 20px;
+}
+#customize-controls .customize-control.customize-control-collapsible:hover,
+#customize-controls .customize-control.customize-control-collapsible:focus {
+    color: #0073aa;
     background-color: #fdfdfd;
 }
 #customize-controls .customize-control.customize-control-collapsible-end {
     display: none;
-}
-.customize-control-collapsible:hover,
-.customize-control-collapsible:focus {
-    color: #0073aa;
 }
 .customize-control-kirki-collapsible {
     position: relative;
