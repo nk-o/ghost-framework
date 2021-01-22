@@ -204,13 +204,37 @@ $metabox_value = Ghost_Framework::get_metabox( $name, $post_id );
 ### Sidebars Selector
 
 ```php
-Ghost_Framework::add_field( array(
-    'type'       => 'sidebars',
-    'settings'   => 'footer_widget_1_sidebar',
-    'label'      => esc_html__( 'Select Sidebar For 1 Col', '@@text_domain' ),
-    'section'    => 'footer',
-    'default'    => 'sidebar-footer-1',
-) );
+Ghost_Framework::add_field(
+    array(
+        'type'       => 'sidebars',
+        'settings'   => 'footer_widget_1_sidebar',
+        'label'      => esc_html__( 'Select Sidebar For 1 Col', '@@text_domain' ),
+        'section'    => 'footer',
+        'default'    => 'sidebar-footer-1',
+    )
+);
+```
+
+### Collapsible Control
+
+```php
+Ghost_Framework::add_field(
+    array(
+        'type'     => 'collapsible',
+        'settings' => 'navigation_search_collapse',
+        'label'    => esc_html__( 'Search', '@@text_domain' ),
+        'section'  => 'navigation',
+    )
+);
+
+// Optional Collapse End.
+Ghost_Framework::add_field(
+    array(
+        'type'     => 'collapsible_end',
+        'settings' => 'navigation_search_collapse_end',
+        'section'  => 'navigation',
+    )
+);
 ```
 
 ## Add custom Typography
