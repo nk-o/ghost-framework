@@ -24,7 +24,6 @@
         background-color: transparent;
         border-bottom: none;
         border-left: none;
-        transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
 
         &.dashicons-before::before {
             width: 16px;

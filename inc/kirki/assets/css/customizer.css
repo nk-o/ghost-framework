@@ -50,9 +50,6 @@
   background-color: transparent;
   border-bottom: none;
   border-left: none;
-  -webkit-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
-  -o-transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
-  transition: .15s color ease-in-out, .15s background-color ease-in-out, .15s border-color ease-in-out;
 }
 #customize-controls .accordion-section-title.dashicons-before::before {
   width: 16px;
