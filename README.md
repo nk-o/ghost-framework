@@ -315,6 +315,22 @@ Ghost_Framework::night_mode( array(
 ) );
 ```
 
+## Custom Breakpoints
+
+Change default breakpoints used in Ghost Kit and in Visual Portfolio plugins.
+
+```php
+Ghost_Framework::breakpoints( array(
+    'xs' => 320,
+    'sm' => 576,
+    'md' => 768,
+    'lg' => 992,
+    'xl' => 1200,
+) );
+```
+
+Note: `xs` used in Visual Portfolio only.
+
 ## Brand SVG
 
 ### Get brand SVG string

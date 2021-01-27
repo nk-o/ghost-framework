@@ -91,6 +91,7 @@ class Ghost_Framework {
                 'class-typography.php',
                 'class-brand-svg.php',
                 'class-night-mode.php',
+                'class-breakpoints.php',
                 'class-templates.php',
             );
             foreach ( $classes_include as $inc ) {
@@ -464,6 +465,13 @@ class Ghost_Framework {
      */
     public static function night_mode( $attributes = array() ) {
         Ghost_Framework_Night_Mode::init( $attributes );
+    }
+
+    /**
+     * Custom Breakpoints for Ghost Kit and Visual Portfolio plugins.
+     */
+    public static function breakpoints( $attributes = array() ) {
+        Ghost_Framework_Breakpoints::init( $attributes );
     }
 
     /**
