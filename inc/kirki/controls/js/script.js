@@ -135,7 +135,7 @@ if (_.isUndefined(window.kirkiSetSettingValue)) {
         },
     };
 }
-const kirki = {
+let kirki = {
 
     initialized: false,
 
