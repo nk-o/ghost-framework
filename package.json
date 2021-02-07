@@ -5,22 +5,23 @@
     "license": "GPL-2.0",
     "author": "nK <https://nkdev.info>",
     "scripts": {
-        "css:sass": "sass assets/css/admin.scss:assets/css/admin.min.css assets/css/customizer-collapsible-control.scss:assets/css/customizer-collapsible-control.min.css inc/kirki/assets/css/customizer.scss:inc/kirki/assets/css/customizer.min.css --style=compressed",
-        "css:autoprefixer": "postcss --use autoprefixer -o assets/css/admin.min.css assets/css/admin.min.css && postcss --use autoprefixer -o assets/css/customizer-collapsible-control.min.css assets/css/customizer-collapsible-control.min.css && postcss --use autoprefixer -o inc/kirki/assets/css/customizer.min.css inc/kirki/assets/css/customizer.min.css",
-        "js:babel": "babel assets/js/night-mode.js -o assets/js/night-mode.min.js && babel assets/js/customizer-collapsible-control.js -o assets/js/customizer-collapsible-control.min.js && babel inc/kirki/controls/js/script.js -o inc/kirki/controls/js/script.min.js",
-        "js:rollup": "rollup assets/js/night-mode.min.js --format iife --file assets/js/night-mode.min.js && rollup assets/js/customizer-collapsible-control.min.js --format iife --file assets/js/customizer-collapsible-control.min.js && rollup inc/kirki/controls/js/script.min.js --format iife --file inc/kirki/controls/js/script.min.js",
-        "js:compress": "terser assets/js/night-mode.min.js -o assets/js/night-mode.min.js -c -m && terser assets/js/customizer-collapsible-control.min.js -o assets/js/customizer-collapsible-control.min.js -c -m && terser inc/kirki/controls/js/script.min.js -o inc/kirki/controls/js/script.min.js -c -m",
-        "build": "npm run css:sass && npm run css:autoprefixer && npm run js:babel && npm run js:rollup && npm run js:compress"
+        "build": "webpack"
     },
     "devDependencies": {
-        "@babel/cli": "^7.12.13",
         "@babel/core": "^7.12.13",
+        "@babel/plugin-transform-strict-mode": "^7.12.13",
         "@babel/preset-env": "^7.12.13",
         "autoprefixer": "^10.2.4",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^5.0.1",
+        "mini-css-extract-plugin": "^1.3.5",
+        "path": "^0.12.7",
         "postcss": "^8.2.5",
-        "postcss-cli": "^8.3.1",
-        "rollup": "^2.38.5",
+        "postcss-loader": "^5.0.0",
         "sass": "^1.32.6",
-        "terser": "^5.6.0-beta"
+        "sass-loader": "^11.0.0",
+        "webpack": "^5.21.1",
+        "webpack-cli": "^4.5.0",
+        "webpack-remove-empty-scripts": "^0.7.1"
     }
 }
