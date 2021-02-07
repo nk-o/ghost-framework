@@ -1,7 +1,11 @@
 /**
  * Collapsible control for Kirki
  */
-window.jQuery( function( $ ) {
+const {
+    jQuery: $,
+} = window;
+
+$( function() {
     function collapse( $collapsible, collapse = true ) {
         $collapsible.closest( '.customize-control-collapsible' ).nextUntil( '.customize-control-collapsible, .customize-control-collapsible-end' )[ collapse ? 'addClass' : 'removeClass' ]( 'customize-control-kirki-collapsible-hidden' );
 
@@ -9,13 +13,13 @@ window.jQuery( function( $ ) {
     }
 
     // Hide all collapsed controls on page load.
-    $( '.customize-control-kirki-collapsible:not(.customize-control-kirki-collapsible-expanded)' ).each( function() {
+    $( '.customize-control-kirki-collapsible:not(.customize-control-kirki-collapsible-expanded)' ).each( () => {
         collapse( $( this ) );
     } );
 
     // Collapse on click.
     $( document ).on( 'click', '.customize-control-kirki-collapsible', function() {
-        var $collapsible = $( this );
+        const $collapsible = $( this );
         collapse( $collapsible, $collapsible.hasClass( 'customize-control-kirki-collapsible-expanded' ) );
     } )
 } );

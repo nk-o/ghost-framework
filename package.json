@@ -1,0 +1,26 @@
+{
+    "name": "ghost-framework",
+    "title": "Ghost Framework",
+    "version": "1.0.0",
+    "license": "GPL-2.0",
+    "author": "nK <https://nkdev.info>",
+    "scripts": {
+        "css:sass": "sass assets/css/admin.scss:assets/css/admin.min.css assets/css/customizer-collapsible-control.scss:assets/css/customizer-collapsible-control.min.css inc/kirki/assets/css/customizer.scss:inc/kirki/assets/css/customizer.min.css --style=compressed",
+        "css:autoprefixer": "postcss --use autoprefixer -o assets/css/admin.min.css assets/css/admin.min.css && postcss --use autoprefixer -o assets/css/customizer-collapsible-control.min.css assets/css/customizer-collapsible-control.min.css && postcss --use autoprefixer -o inc/kirki/assets/css/customizer.min.css inc/kirki/assets/css/customizer.min.css",
+        "js:babel": "babel assets/js/night-mode.js -o assets/js/night-mode.min.js && babel assets/js/customizer-collapsible-control.js -o assets/js/customizer-collapsible-control.min.js && babel inc/kirki/controls/js/script.js -o inc/kirki/controls/js/script.min.js",
+        "js:rollup": "rollup assets/js/night-mode.min.js --format iife --file assets/js/night-mode.min.js && rollup assets/js/customizer-collapsible-control.min.js --format iife --file assets/js/customizer-collapsible-control.min.js && rollup inc/kirki/controls/js/script.min.js --format iife --file inc/kirki/controls/js/script.min.js",
+        "js:compress": "terser assets/js/night-mode.min.js -o assets/js/night-mode.min.js -c -m && terser assets/js/customizer-collapsible-control.min.js -o assets/js/customizer-collapsible-control.min.js -c -m && terser inc/kirki/controls/js/script.min.js -o inc/kirki/controls/js/script.min.js -c -m",
+        "build": "npm run css:sass && npm run css:autoprefixer && npm run js:babel && npm run js:rollup && npm run js:compress"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.13",
+        "@babel/core": "^7.12.13",
+        "@babel/preset-env": "^7.12.13",
+        "autoprefixer": "^10.2.4",
+        "postcss": "^8.2.5",
+        "postcss-cli": "^8.3.1",
+        "rollup": "^2.38.5",
+        "sass": "^1.32.6",
+        "terser": "^5.6.0-beta"
+    }
+}

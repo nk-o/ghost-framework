@@ -49,6 +49,15 @@ if (_.isUndefined(window.kirkiSetSettingValue)) {
                 $this.setColorPicker($this.findElement(setting, '.kirki-color-control'), value);
                 break;
 
+            case 'kirki-radio-buttonset':
+            case 'kirki-radio-image':
+            case 'kirki-radio':
+            case 'kirki-dashicons':
+            case 'kirki-color-palette':
+            case 'kirki-palette':
+                jQuery( $this.findElement( setting, 'input[value="' + value + '"]' ) ).prop( 'checked', true );
+                break;
+
             case 'kirki-repeater':
 
                 // Not yet implemented.
@@ -126,7 +135,7 @@ if (_.isUndefined(window.kirkiSetSettingValue)) {
         },
     };
 }
-var kirki = {
+const kirki = {
 
     initialized: false,
 
@@ -150,7 +159,6 @@ var kirki = {
 
 // Initialize the kirki object.
 kirki.initialize();
-var kirki = kirki || {};
 kirki = jQuery.extend(kirki, {
 
     /**
@@ -426,7 +434,6 @@ kirki = jQuery.extend(kirki, {
     },
 });
 /* global kirkiL10n */
-var kirki = kirki || {};
 kirki = jQuery.extend(kirki, {
 
     /**
@@ -823,7 +830,6 @@ kirki = jQuery.extend(kirki, {
         },
     },
 });
-var kirki = kirki || {};
 kirki = jQuery.extend(kirki, {
 
     /**
@@ -2173,3 +2179,5 @@ wp.customize.controlConstructor['kirki-toggle'] = wp.customize.kirkiDynamicContr
 });
 /* global kirkiL10n, kirki */
 /* eslint-enable */
+
+window.kirki = kirki;

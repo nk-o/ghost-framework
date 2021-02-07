@@ -1,0 +1,57 @@
+/**
+ * Collapsible control for Kirki
+ */
+.customize-control-kirki-collapsible-hidden {
+    display: none;
+}
+.customize-control-kirki-collapsible {
+    position: relative;
+    display: block;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -10px;
+        right: -20px;
+        bottom: -10px;
+        left: -20px;
+    }
+    
+    .customize-control-title {
+        position: relative;
+        margin-bottom: 0;
+
+        &::after {
+            position: absolute;
+            content: "\f345";
+            top: calc(50% - 5.5px);
+            right: 0;
+            color: inherit;
+            font: normal 20px/1 dashicons;
+            font-size: .9em;
+            speak: never;
+            display: block;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-decoration: none;
+            z-index: 1;
+        }
+    }
+    &-expanded .customize-control-title::after {
+        transform: rotate(90deg);
+    }
+}
+#customize-controls .customize-control.customize-control-collapsible {
+    margin-left: -10px;
+    padding: 10px 20px;
+
+    &:hover,
+    &:focus {
+        color: #0073aa;
+        background-color: #fdfdfd;
+    }
+    &-end {
+        display: none;
+    }
+}

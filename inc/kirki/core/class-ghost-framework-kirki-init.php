@@ -84,6 +84,7 @@ class Ghost_Framework_Kirki_Init {
             'kirki-editor'          => 'Ghost_Framework_Kirki_Control_Editor',
             'kirki-image'           => 'Ghost_Framework_Kirki_Control_Image',
             'kirki-number'          => 'Ghost_Framework_Kirki_Control_Number',
+            'kirki-radio'           => 'Ghost_Framework_Kirki_Control_Radio',
             'repeater'              => 'Ghost_Framework_Kirki_Control_Repeater',
             'kirki-select'          => 'Ghost_Framework_Kirki_Control_Select',
             'kirki-slider'          => 'Ghost_Framework_Kirki_Control_Slider',
