@@ -16,10 +16,13 @@
         border-top: none;
     }
 
+    .accordion-section-content {
+        color: inherit;
+    }
+
     .accordion-section-title {
         padding: 10px 20px;
         font-size: 13px;
-        font-weight: 400;
         color: #555d66;
         background-color: transparent;
         border-bottom: none;
@@ -60,6 +63,7 @@
     .customize-control-description {
         font-size: 12px;
         opacity: .8;
+        margin-top: 3px;
     }
     .customize-control {
         width: calc(100% - 20px);
@@ -92,18 +96,18 @@
             position: absolute;
             top: 12px;
             right: 10px;
-            width: 32px;
-            height: 14px;
+            width: 34px;
+            height: 16px;
             background-color: transparent;
-            border: 2px solid #6c7781;
-            border-radius: 9px;
+            border: 2px solid #555d66;
+            border-radius: 12px;
             transition: background .2s ease;
 
             &::after {
                 left: 2px;
-                width: 10px;
-                height: 10px;
-                background-color: #6c7781;
+                width: 12px;
+                height: 12px;
+                background-color: #555d66;
                 border: none;
                 border-radius: 50%;
                 transition: transform .1s ease;
@@ -113,11 +117,11 @@
             }
         }
         input:checked + .switch {
-            background-color: #0073aa;
-            border-color: #0073aa;
+            background-color: #007cba;
+            border-color: #007cba;
 
             &::after {
-                left: 9px;
+                left: 7px;
                 background-color: #fff;
             }
         }
@@ -239,12 +243,12 @@
         }
 
         input[type="range"] {
-            height: 3px;
-            background-color: #d1d5d8;
+            height: 2px;
+            background-color: #b7bcc1;
         }
         input[type="range"]::-webkit-slider-thumb {
-            width: 13px;
-            height: 13px;
+            width: 14px;
+            height: 14px;
             background-color: #007cba;
             border: none;
         }
@@ -258,7 +262,8 @@
         input[type="text"] {
             padding: 0 5px;
             margin-left: 10px;
-            background-color: #e2e4e6;
+            border: 1px solid #909294;
+            background-color: #fff;
         }
     }
 
@@ -382,14 +387,12 @@
         }
         label {
             display: list-item;
-            margin-top: 10px;
+            margin-top: 14px;
         }
         label .option-description {
             display: block;
-            color: rgba(0, 0, 0, 0.35);
-            font-size: 0.9em;
             padding-left: 25px;
-            margin-top: 5px;
+            margin-top: 7px;
         }
     }
 

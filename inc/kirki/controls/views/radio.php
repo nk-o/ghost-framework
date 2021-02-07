@@ -39,7 +39,7 @@
                 <# if ( data.value === key ) { #> checked<# } #>
             />
             <# if ( _.isArray( val ) ) { #>
-                {{{ val[0] }}}<span class="option-description">{{{ val[1] }}}</span>
+                {{{ val[0] }}}<span class="option-description description customize-control-description">{{{ val[1] }}}</span>
             <# } else { #>
                 {{ val }}
             <# } #>
