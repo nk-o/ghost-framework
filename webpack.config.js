@@ -17,12 +17,13 @@ const assets = [
     './inc/kirki/modules/preset/preset.js',
     './inc/kirki/modules/tooltips/tooltip.js',
 
-    // CSS
+    // SCSS
     './assets/css/admin.scss',
     './assets/css/customizer-collapsible-control.scss',
     './inc/kirki/assets/css/customizer.scss',
     './inc/kirki/controls/css/styles.scss',
     './inc/kirki/modules/custom-sections/sections.scss',
+    './inc/kirki/modules/icons/icons.scss',
     './inc/kirki/modules/tooltips/tooltip.scss',
 ];
 

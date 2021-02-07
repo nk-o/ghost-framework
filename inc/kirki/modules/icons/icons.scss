@@ -1,0 +1,19 @@
+.kirki-section-icon-svg {
+    display: inline-block;
+}
+.kirki-section-icon-svg svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: -4px 0;
+    margin-right: 6px;
+}
+.panel-title .kirki-section-icon-svg svg,
+.customize-section-title .kirki-section-icon-svg svg {
+    width: 20px;
+    height: 20px;
+    margin: -3px 0;
+}
+.panel-title .kirki-section-icon-svg svg {
+    margin-right: 5px;
+}
