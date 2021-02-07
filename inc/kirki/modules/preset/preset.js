@@ -1,5 +1,7 @@
-/* global kirkiSetSettingValue */
-/* eslint-disable */
+const {
+    kirkiSetSettingValue,
+} = window;
+
 jQuery(() => {
     // Loop Controls.
     wp.customize.control.each((control) => {
@@ -24,4 +26,3 @@ jQuery(() => {
         }
     });
 });
-/* eslint-enable */

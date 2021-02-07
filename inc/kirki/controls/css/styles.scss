@@ -1,0 +1,537 @@
+.customize-control-kirki-code textarea {
+    width: 100%;
+    min-height: 200px;
+}
+
+.customize-control-kirki-generic {
+    input {
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+    }
+}
+
+.customize-control-kirki-color {
+    input[data-type="hue"] + .iris-strip-horiz .iris-slider {
+        background-image: linear-gradient(left, red, #ff7f00, yellow, #80ff00, lime, #00ff80, cyan, #007fff, blue, #7f00ff, magenta, #ff0080, red) !important;
+        widows: 100% !important;
+    }
+
+    .iris-picker {
+        .iris-square-handle {
+            z-index: 8;
+        }
+
+        &.iris-border {
+            width: 100% !important;
+        }
+    }
+
+    .iris-picker-inner {
+        display: grid;
+        grid-template-columns: 1fr 20px;
+        grid-gap: 7px;
+
+        > * {
+            width: 100% !important;
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+    }
+
+    .kirki-input-container[data-has-alpha=true] .iris-picker-inner {
+        grid-template-columns: 1fr 20px 20px;
+    }
+
+    .iris-only-strip {
+        width: 100% !important;
+
+        .iris-picker-inner {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.wp-customizer div.ui-datepicker {
+    width: 255px;
+    background: #fff;
+    border: 1px solid #dedede;
+    z-index: 500001 !important;
+
+    .ui-datepicker-header {
+        padding: 10px;
+        background: #e5e5e5;
+        border-bottom: 1px solid #fff;
+
+        .ui-datepicker-next,
+        .ui-datepicker-prev {
+            position: absolute;
+            display: block;
+            width: 1em;
+            overflow: hidden;
+        }
+
+        .ui-datepicker-next {
+            &:after,
+            &:before {
+                font-family: dashicons;
+            }
+        }
+
+        .ui-datepicker-prev {
+            &:after,
+            &:before {
+                font-family: dashicons;
+            }
+        }
+
+        .ui-datepicker-next {
+            &:after:hover,
+            &:before:hover {
+                cursor: pointer;
+            }
+        }
+
+        .ui-datepicker-prev {
+            &:after:hover,
+            &:before:hover {
+                cursor: pointer;
+            }
+        }
+
+        .ui-datepicker-next .ui-icon {
+            display: none;
+        }
+
+        .ui-datepicker-prev {
+            .ui-icon {
+                display: none;
+            }
+
+            left: 10px;
+
+            &:before {
+                content: "\f341";
+            }
+        }
+
+        .ui-datepicker-next {
+            right: 10px;
+
+            &:after {
+                content: "\f345";
+            }
+        }
+
+        .ui-datepicker-title {
+            text-align: center;
+        }
+    }
+
+    .ui-datepicker-calendar {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            padding: 5px;
+            background: #e5e5e5;
+        }
+
+        tr td {
+            text-align: center;
+
+            a {
+                display: block;
+                padding: 5px;
+                color: #333;
+                text-decoration: none;
+
+                &.ui-state-active,
+                &:hover {
+                    color: #fff;
+                    background-color: #0073aa;
+                }
+            }
+
+            &.ui-state-disabled {
+                a,
+                .ui-state-default a {
+                    color: #999;
+                }
+            }
+        }
+    }
+}
+
+.customize-control-kirki-editor textarea {
+    width: 100%;
+}
+
+.customize-control-kirki-number .customize-control-content {
+    display: flex;
+    align-items: stretch;
+
+    input {
+        width: 100%;
+        -moz-appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    .quantity {
+        min-width: 2rem;
+        max-width: 2rem;
+        line-height: 24px;
+        text-align: center;
+    }
+}
+
+.customize-control-repeater {
+    position: relative;
+
+    .repeater-fields .repeater-row {
+        position: relative;
+        margin-top: .5rem;
+        background: #eee;
+        border: 1px solid #e5e5e5;
+
+        &.minimized {
+            padding: 0;
+            border: 1px solid #dfdfdf;
+
+            &:hover {
+                border: 1px solid #e5e5e5;
+            }
+
+            .repeater-row-content {
+                display: none;
+            }
+        }
+
+        label {
+            margin-bottom: 12px;
+            clear: both;
+        }
+
+        .repeater-field {
+            &.repeater-field- {
+                display: none;
+            }
+
+            &.repeater-field-radio-image input {
+                display: none;
+
+                img {
+                    border: 1px solid transparent;
+                }
+
+                &:checked + label img {
+                    border: 1px solid #3498db;
+                    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.25);
+                }
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+    }
+
+    button.repeater-add {
+        margin-top: 1rem;
+    }
+
+    .repeater-row-content {
+        padding: 10px 15px;
+        background: #fff;
+    }
+
+    .repeater-field {
+        width: 100%;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        clear: both;
+        border-bottom: 1px dotted #ccc;
+
+        .customize-control-title,
+        .customize-control-description {
+            font-size: 13px;
+            line-height: initial;
+        }
+
+        &.repeater-field-hidden {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+    }
+
+    .repeater-field-select select {
+        margin-left: 0;
+    }
+
+    .repeater-field-checkbox {
+        label {
+            line-height: 28px;
+        }
+
+        input {
+            margin-right: 5px;
+            line-height: 28px;
+        }
+    }
+
+    .repeater-field-textarea textarea {
+        width: 100%;
+        resize: vertical;
+    }
+
+    .repeater-row-header {
+        position: relative;
+        height: auto;
+        min-height: 20px;
+        padding: 10px 15px;
+        overflow: hidden;
+        line-height: 30px;
+        word-wrap: break-word;
+        background: white;
+        border-bottom: 1px solid #dfdfdf;
+
+        &:hover {
+            cursor: move;
+        }
+
+        .dashicons {
+            position: absolute;
+            top: 2px;
+            right: 12px;
+            font-size: 18px;
+            color: #a0a5aa;
+        }
+    }
+
+    .repeater-row-label {
+        display: block;
+        width: 90%;
+        height: 18px;
+        overflow: hidden;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 20px;
+    }
+
+    .repeater-row-remove {
+        color: #a00;
+
+        &:hover {
+            color: #f00;
+        }
+    }
+
+    .repeater-minimize {
+        line-height: 36px;
+    }
+
+    .remove-button,
+    .upload-button {
+        width: 48%;
+    }
+}
+
+.kirki-image-attachment {
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+
+    img {
+        display: inline-block;
+    }
+}
+
+.kirki-file-attachment {
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+
+    .file {
+        display: block;
+        padding: 10px 5px;
+        background: #f9f9f9;
+        border: 1px dotted #c3c3c3;
+    }
+}
+
+.limit {
+    padding: 3px;
+    border-radius: 3px;
+
+    &.highlight {
+        color: #fff;
+        background: #d32f2f;
+    }
+}
+
+.customize-control-kirki-slider .wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 15px 0 7px;
+
+    .slider-reset {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.3);
+        transition: .3s ease-in-out;
+
+        &:hover {
+            color: #dc3232;
+            transform: scale(1.3);
+        }
+    }
+
+    input[type="range"] {
+        display: block;
+        width: 100%;
+        height: 5px;
+        margin: 0 auto;
+        background-color: #bdc3c7;
+        border-radius: 5px;
+        outline: 0;
+        -webkit-appearance: none;
+
+        &::-webkit-slider-thumb {
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+            background-color: #0085ba;
+            border: 1px solid #006799;
+            border-radius: 50%;
+            transition: .3s ease-in-out;
+            -webkit-appearance: none;
+        }
+    }
+}
+
+​ .customize-control-kirki-slider .wrapper input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #006799;
+    border: 2px solid #0085ba;
+}
+
+.customize-control-kirki-slider .wrapper {
+    input {
+        &[type="range"]::-webkit-slider-thumb:active {
+            transform: scale(1.2);
+        }
+
+        &[type="text"] {
+            width: 40px;
+            padding: 0;
+            font-size: 13px;
+            text-align: right;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+    }
+
+    .value {
+        display: flex;
+        align-items: baseline;
+    }
+}
+
+.customize-control-kirki-toggle {
+    position: relative;
+
+    label {
+        display: flex;
+        flex-wrap: wrap;
+
+        .customize-control-title {
+            width: calc(100% - 55px);
+        }
+
+        .description {
+            order: 99;
+        }
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        top: 4px;
+        width: 35px;
+        height: 12px;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        background: #b4b9be;
+        border: 1px solid #b4b9be;
+        border-radius: 8px;
+        transition: background 350ms ease;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: -3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: all 350ms cubic-bezier(0, 0.95, 0.38, 0.98), background 150ms ease;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: -3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: all 350ms cubic-bezier(0, 0.95, 0.38, 0.98), background 150ms ease;
+            background: rgba(0, 0, 0, 0.2);
+            transform: translate3d(0, -50%, 0) scale(0);
+        }
+
+        &:after {
+            background: #999;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transform: translate3d(0, -50%, 0);
+        }
+
+        &:active:before {
+            transform: translate3d(0, -50%, 0) scale(3);
+        }
+    }
+
+    input:checked + .switch {
+        &:before {
+            background: rgba(0, 115, 170, 0.075);
+            transform: translate3d(100%, -50%, 0) scale(1);
+        }
+
+        &:after {
+            background: #0073aa;
+            transform: translate3d(100%, -50%, 0);
+        }
+
+        &:active:before {
+            background: rgba(0, 115, 170, 0.075);
+            transform: translate3d(100%, -50%, 0) scale(3);
+        }
+    }
+}

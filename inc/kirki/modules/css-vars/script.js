@@ -1,5 +1,7 @@
-/* global kirkiCssVarFields */
-/*eslint-disable */
+const {
+    kirkiCssVarFields,
+} = window;
+
 const kirkiCssVars = {
 
     /**
@@ -81,4 +83,5 @@ wp.customize.bind('preview-ready', () => {
         });
     });
 });
-/* eslint-enable */
+
+window.kirkiCssVars = kirkiCssVars;

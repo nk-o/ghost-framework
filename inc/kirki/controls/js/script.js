@@ -134,6 +134,7 @@ if (_.isUndefined(window.kirkiSetSettingValue)) {
             }, timeout);
         },
     };
+    window.kirkiSetSettingValue = kirkiSetSettingValue;
 }
 let kirki = {
 

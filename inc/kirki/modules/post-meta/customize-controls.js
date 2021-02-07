@@ -1,4 +1,3 @@
-/* eslint-disable */
 jQuery(() => {
     let self;
 
@@ -21,4 +20,3 @@ jQuery(() => {
         }
     });
 });
-/* eslint-enable */

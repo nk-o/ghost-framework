@@ -1,4 +1,3 @@
-/* eslint-disable */
 jQuery(() => {
     wp.customize.section.each((section) => {
         // Get the pane element.
@@ -252,4 +251,3 @@ jQuery(() => {
         },
     });
 }(jQuery));
-/* eslint-enable */

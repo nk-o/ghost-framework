@@ -111,8 +111,8 @@ class Ghost_Framework_Kirki_Modules_Tooltips {
     public function customize_controls_print_footer_scripts() {
         $this->parse_fields();
 
-        wp_enqueue_script( 'kirki-tooltip', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/tooltips/tooltip.js', array( 'jquery' ), KIRKI_VERSION, false );
+        wp_enqueue_script( 'kirki-tooltip', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/tooltips/tooltip.min.js', array( 'jquery' ), KIRKI_VERSION, false );
         wp_localize_script( 'kirki-tooltip', 'kirkiTooltips', $this->tooltips_content );
-        wp_enqueue_style( 'kirki-tooltip', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/tooltips/tooltip.css', array(), KIRKI_VERSION );
+        wp_enqueue_style( 'kirki-tooltip', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/tooltips/tooltip.min.css', array(), KIRKI_VERSION );
     }
 }

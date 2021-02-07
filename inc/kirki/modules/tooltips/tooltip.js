@@ -1,5 +1,7 @@
-/* global kirkiTooltips */
-/* eslint-disable */
+const {
+    kirkiTooltips,
+} = window;
+
 jQuery(() => {
     function kirkiTooltipAdd(control) {
         _.each(kirkiTooltips, (tooltip) => {
@@ -52,4 +54,3 @@ jQuery(() => {
         });
     });
 });
-/* eslint-enable */

@@ -1,4 +1,3 @@
-/* eslint-disable */
 const kirkiDependencies = {
 
     listenTo: {},
@@ -205,4 +204,5 @@ const kirkiDependencies = {
 jQuery(() => {
     kirkiDependencies.init();
 });
-/* eslint-enable */
+
+window.kirkiDependencies = kirkiDependencies;

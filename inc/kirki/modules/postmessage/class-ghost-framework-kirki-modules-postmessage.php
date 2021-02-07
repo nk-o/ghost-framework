@@ -62,7 +62,7 @@ class Ghost_Framework_Kirki_Modules_PostMessage {
      * The rest is handled via JS.
      */
     public function postmessage() {
-        wp_enqueue_script( 'kirki_auto_postmessage', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/postmessage/postmessage.js', array( 'jquery', 'customize-preview' ), KIRKI_VERSION, true );
+        wp_enqueue_script( 'kirki_auto_postmessage', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/postmessage/postmessage.min.js', array( 'jquery', 'customize-preview' ), KIRKI_VERSION, true );
         $fields = Ghost_Framework_Kirki::$fields;
         $data   = array();
         foreach ( $fields as $field ) {

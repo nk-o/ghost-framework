@@ -1,5 +1,8 @@
-/* eslint-disable */
-/* global kirkiPostMessageFields, WebFont */
+const {
+    kirkiPostMessageFields,
+    WebFont,
+} = window;
+
 var kirkiPostMessage = {
 
     /**
@@ -275,4 +278,5 @@ jQuery(() => {
         });
     });
 });
-/* eslint-enable */
+
+window.kirkiPostMessage = kirkiPostMessage;

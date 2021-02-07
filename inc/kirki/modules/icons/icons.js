@@ -1,6 +1,8 @@
-/* global kirkiIcons */
-/* eslint-disable */
 jQuery(() => {
+    const {
+        kirkiIcons,
+    } = window;
+
     if (!_.isUndefined(kirkiIcons.section)) {
         // Parse sections and add icons.
         _.each(kirkiIcons.section, (icon, sectionID) => {
@@ -19,4 +21,3 @@ jQuery(() => {
         });
     }
 });
-/* eslint-enable */

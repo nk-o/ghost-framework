@@ -1,0 +1,36 @@
+.tooltip-wrapper {
+    position: relative;
+    float: right;
+
+    .tooltip-trigger {
+        text-decoration: none;
+        cursor: help;
+    }
+    .tooltip-content {
+        position: absolute;
+        top: -10px;
+        left: -225px;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        line-height: 1.4em;
+        color: #000;
+        background: #ffc107;
+        border-radius: 3px;
+        z-index: 99999;
+
+        &::after {
+            content: "\f139";
+            position: absolute;
+            top: 11px;
+            right: -12px;
+            font-family: dashicons;
+            font-size: 20px;
+            color: #ffc107;
+        }
+
+        a {
+            color: #000;
+        }
+    }
+}

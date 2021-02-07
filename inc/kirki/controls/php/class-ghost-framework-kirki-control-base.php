@@ -93,10 +93,6 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
      */
     public function enqueue() {
 
-        // Build the suffix for the script.
-        $suffix  = '';
-        $suffix .= ( ! defined( 'SCRIPT_DEBUG' ) || true !== SCRIPT_DEBUG ) ? '.min' : '';
-
         // The Ghost_Framework_Kirki plugin URL.
         $kirki_url = trailingslashit( Ghost_Framework_Kirki::$url );
 
@@ -112,7 +108,7 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
         // Enqueue the script.
         wp_enqueue_script(
             'kirki-script',
-            "{$kirki_url}controls/js/script{$suffix}.js",
+            "{$kirki_url}controls/js/script.min.js",
             array(
                 'jquery',
                 'customize-base',
@@ -142,12 +138,10 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
             )
         );
 
-        $suffix = str_replace( '.min', '', $suffix );
-
         // Enqueue the style.
         wp_enqueue_style(
             'kirki-styles',
-            "{$kirki_url}controls/css/styles{$suffix}.css",
+            "{$kirki_url}controls/css/styles.min.css",
             array(),
             KIRKI_VERSION
         );

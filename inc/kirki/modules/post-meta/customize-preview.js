@@ -1,6 +1,9 @@
-/* global wp, _customizePostPreviewedQueriedObject */
-/* eslint-disable */
 jQuery(() => {
+    const {
+        wp,
+        _customizePostPreviewedQueriedObject,
+    } = window;
+
     const self = {
         queriedPost: (!_.isUndefined(_customizePostPreviewedQueriedObject)) ? _customizePostPreviewedQueriedObject : null,
     };
@@ -12,4 +15,3 @@ jQuery(() => {
         });
     });
 });
-/* eslint-enable */
