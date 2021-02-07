@@ -13,7 +13,7 @@ $( function() {
     }
 
     // Hide all collapsed controls on page load.
-    $( '.customize-control-kirki-collapsible:not(.customize-control-kirki-collapsible-expanded)' ).each( () => {
+    $( '.customize-control-kirki-collapsible:not(.customize-control-kirki-collapsible-expanded)' ).each( function() {
         collapse( $( this ) );
     } );
 
