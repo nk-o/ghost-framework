@@ -201,20 +201,6 @@ $metabox_value = Ghost_Framework::get_metabox( $name, $post_id );
 
 ## Extended Kirki fields
 
-### Sidebars Selector
-
-```php
-Ghost_Framework::add_field(
-    array(
-        'type'       => 'sidebars',
-        'settings'   => 'footer_widget_1_sidebar',
-        'label'      => esc_html__( 'Select Sidebar For 1 Col', '@@text_domain' ),
-        'section'    => 'footer',
-        'default'    => 'sidebar-footer-1',
-    )
-);
-```
-
 ### Collapsible Control
 
 ```php
@@ -233,6 +219,34 @@ Ghost_Framework::add_field(
         'type'     => 'collapsible_end',
         'settings' => 'navigation_search_collapse_end',
         'section'  => 'navigation',
+    )
+);
+```
+
+### Aspect Ratio Control
+
+```php
+Ghost_Framework::add_field(
+    array(
+        'type'       => 'aspect-ratio',
+        'settings'   => 'aspect_ratio',
+        'label'      => esc_html__( 'Aspect Ratio', '@@text_domain' ),
+        'section'    => 'post',
+        'default'    => '4:3',
+    )
+);
+```
+
+### Sidebars Selector Control
+
+```php
+Ghost_Framework::add_field(
+    array(
+        'type'       => 'sidebars',
+        'settings'   => 'footer_widget_1_sidebar',
+        'label'      => esc_html__( 'Select Sidebar For 1 Col', '@@text_domain' ),
+        'section'    => 'footer',
+        'default'    => 'sidebar-footer-1',
     )
 );
 ```

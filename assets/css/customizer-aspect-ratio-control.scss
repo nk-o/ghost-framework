@@ -1,0 +1,20 @@
+/**
+ * Aspect ratio control for Kirki
+ */
+
+// Custom inputs.
+.customize-control-kirki-aspect-ratio-custom {
+    display: flex;
+    margin-top: 10px;
+
+    &-delimiter {
+        padding: 4px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+}
+
+// Hide class.
+.customize-control-kirki-aspect-ratio-hide {
+    display: none;
+}

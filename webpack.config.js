@@ -5,6 +5,7 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const assets = [
     // JS
     './assets/js/night-mode.js',
+    './assets/js/customizer-aspect-ratio-control.js',
     './assets/js/customizer-collapsible-control.js',
     './inc/kirki/controls/js/script.js',
     './inc/kirki/modules/css-vars/script.js',
@@ -19,6 +20,7 @@ const assets = [
 
     // SCSS
     './assets/css/admin.scss',
+    './assets/css/customizer-aspect-ratio-control.scss',
     './assets/css/customizer-collapsible-control.scss',
     './inc/kirki/assets/css/customizer.scss',
     './inc/kirki/controls/css/styles.scss',
