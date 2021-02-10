@@ -84,7 +84,7 @@ function ghost_framework_kirki_styles() {
     global $wp_customize;
 
     if ( isset( $wp_customize ) ) {
-        wp_enqueue_style( 'ghost-framework-kirki', Ghost_Framework_Kirki::$url . 'assets/css/customizer.min.css', array(), '@@plugin_version' );
+        wp_enqueue_style( 'ghost-framework-kirki', Ghost_Framework_Kirki::$url . 'assets/css/customizer.min.css', array(), '@@theme_version' );
     }
 }
 

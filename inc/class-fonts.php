@@ -53,7 +53,7 @@ class Ghost_Framework_Fonts {
                 'display' => 'swap',
             );
 
-            wp_enqueue_style( 'ghost-framework-fonts-google', add_query_arg( $query_args, 'https://fonts.googleapis.com/css' ), array(), '@@plugin_version' );
+            wp_enqueue_style( 'ghost-framework-fonts-google', add_query_arg( $query_args, 'https://fonts.googleapis.com/css' ), array(), '@@theme_version' );
         }
     }
 

@@ -2,7 +2,7 @@
 /**
  * Collapsible custom control for Kirki.
  *
- * @package @@theme_name/kirki-sidebars-control
+ * @package @@theme_name/kirki-collapsible-control
  */
 
 /**
@@ -100,8 +100,8 @@ add_action( 'kirki_control_types', 'ghost_framework_customizer_register_control_
  * @return void
  */
 function ghost_framework_customizer_collapsible_assets() {
-    wp_enqueue_style( 'ghost-framework-kirki-collapsible-control', Ghost_Framework::get_url() . '/assets/css/customizer-collapsible-control.min.css', array(), '@@plugin_version' );
-    wp_enqueue_script( 'ghost-framework-kirki-collapsible-control', Ghost_Framework::get_url() . '/assets/js/customizer-collapsible-control.min.js', array( 'jquery', 'customize-controls' ), '@@plugin_version', true );
+    wp_enqueue_style( 'ghost-framework-kirki-collapsible-control', Ghost_Framework::get_url() . '/assets/css/customizer-collapsible-control.min.css', array(), '@@theme_version' );
+    wp_enqueue_script( 'ghost-framework-kirki-collapsible-control', Ghost_Framework::get_url() . '/assets/js/customizer-collapsible-control.min.js', array( 'jquery', 'customize-controls' ), '@@theme_version', true );
 }
 
 add_action( 'customize_controls_enqueue_scripts', 'ghost_framework_customizer_collapsible_assets' );
