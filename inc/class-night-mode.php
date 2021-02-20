@@ -63,7 +63,7 @@ class Ghost_Framework_Night_Mode {
     public static function enqueue_block_editor_assets() {
         self::$attributes['is_editor'] = true;
 
-        wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery', 'wp-element', 'wp-plugins' ), '@@theme_version', false );
+        wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery', 'wp-element', 'wp-plugins', 'wp-data' ), '@@theme_version', false );
         wp_localize_script( 'ghost-framework-night-mode', 'ghostFrameworkNightMode', self::$attributes );
     }
 

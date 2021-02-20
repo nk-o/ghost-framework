@@ -14,7 +14,7 @@
     let $html = ghostFrameworkNightMode.is_editor ? $( '.editor-styles-wrapper' ) : $( 'html' );
 
     function switchMode( toggle = true ) {
-        if ( ! $html ) {
+        if ( ! $html || ! $html.length ) {
             return;
         }
 
@@ -72,8 +72,35 @@
             registerPlugin,
         } = wp.plugins;
 
+        const {
+            withSelect,
+        } = wp.data;
+
         class EditorNightMode extends Component {
+            constructor( ...args ) {
+                super( ...args );
+
+                this.state = {
+                    editorMode: this.props.editorMode,
+                };
+            }
+
             componentDidMount() {
+                this.switch();
+            }
+
+            componentDidUpdate() {
+                // Editor mode changed.
+                if ( this.state.editorMode !== this.props.editorMode ) {
+                    this.setState( {
+                        editorMode: this.props.editorMode,
+                    } );
+
+                    this.switch();
+                }
+            }
+
+            switch() {
                 $html = $( '.editor-styles-wrapper' );
 
                 switchMode( false );
@@ -85,7 +112,15 @@
         }
 
         registerPlugin( 'ghost-framework-editor-night-mode', {
-            render: EditorNightMode,
+            render: withSelect( ( select ) => {
+                const {
+                    getEditorMode,
+                } = select( 'core/edit-post' );
+
+                return {
+                    editorMode: getEditorMode(),
+                };
+            } )( EditorNightMode ),
         } );
     } else {
         switchMode( false );
