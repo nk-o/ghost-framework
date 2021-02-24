@@ -57,7 +57,9 @@
         // Trigger a reflow, flushing the CSS changes. This need to apply the changes from the new class added.
         // Info here - https://stackoverflow.com/questions/11131875/what-is-the-cleanest-way-to-disable-css-transition-effects-temporarily
         // eslint-disable-next-line no-unused-expressions
-        $html[ 0 ].offsetHeight;
+        if ( $html[ 0 ] ) {
+            $html[ 0 ].offsetHeight;
+        }
 
         $html.removeClass( ghostFrameworkNightMode.switching_class );
     }
