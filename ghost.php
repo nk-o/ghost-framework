@@ -636,7 +636,15 @@ class Ghost_Framework {
      */
     public static function get_attachment( $attachment_id, $size = 'full' ) {
         // is url.
-        if ( filter_var( $attachment_id, FILTER_VALIDATE_URL ) ) {
+        if (
+            is_string( $attachment_id ) &&
+            (
+                filter_var( $attachment_id, FILTER_VALIDATE_URL ) ||
+
+                // Simple check for slashes in relative URL.
+                strpos( $attachment_id, '/' ) !== false
+            )
+        ) {
             $path_to_image = $attachment_id;
 
             // @codingStandardsIgnoreLine
