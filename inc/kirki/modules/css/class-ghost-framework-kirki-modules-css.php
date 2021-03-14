@@ -134,7 +134,8 @@ class Ghost_Framework_Kirki_Modules_CSS {
         // Enqueue the dynamic stylesheet.
         wp_enqueue_style(
             'kirki-styles',
-            add_query_arg( $args, site_url() ),
+            // For some reason some servers (or only ours?) can't render styles without trailing slash.
+            add_query_arg( $args, trailingslashit( site_url() ) ),
             array(),
             KIRKI_VERSION
         );
