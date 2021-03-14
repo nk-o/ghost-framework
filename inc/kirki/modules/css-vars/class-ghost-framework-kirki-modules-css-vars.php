@@ -142,7 +142,7 @@ class Ghost_Framework_Kirki_Modules_CSS_Vars {
      * @return void
      */
     public function postmessage() {
-        wp_enqueue_script( 'kirki_auto_css_vars', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/css-vars/script.min.js', array( 'jquery', 'customize-preview' ), KIRKI_VERSION, true );
+        wp_enqueue_script( 'kirki_auto_css_vars', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/css-vars/script.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
         $fields = Ghost_Framework_Kirki::$fields;
         $data   = array();
         foreach ( $fields as $field ) {

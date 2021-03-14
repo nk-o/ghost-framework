@@ -153,7 +153,7 @@ class Ghost_Framework_Kirki_Modules_Custom_Sections {
      * @since 3.0.0
      */
     public function enqueue_scrips() {
-        wp_enqueue_style( 'kirki-custom-sections', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/custom-sections/sections.min.css', array(), KIRKI_VERSION );
-        wp_enqueue_script( 'kirki-custom-sections', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/custom-sections/sections.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), KIRKI_VERSION, false );
+        wp_enqueue_style( 'kirki-custom-sections', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/custom-sections/sections.min.css', array(), '@@theme_version' );
+        wp_enqueue_script( 'kirki-custom-sections', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/custom-sections/sections.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), '@@theme_version', false );
     }
 }

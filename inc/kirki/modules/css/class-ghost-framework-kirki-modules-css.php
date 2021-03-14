@@ -137,7 +137,7 @@ class Ghost_Framework_Kirki_Modules_CSS {
             // For some reason some servers (or only ours?) can't render styles without trailing slash.
             add_query_arg( $args, trailingslashit( site_url() ) ),
             array(),
-            KIRKI_VERSION
+            '@@theme_version'
         );
     }
 

@@ -40,11 +40,6 @@ if ( ! defined( 'KIRKI_PLUGIN_FILE' ) ) {
     define( 'KIRKI_PLUGIN_FILE', __FILE__ );
 }
 
-// Define the KIRKI_VERSION constant.
-if ( ! defined( 'KIRKI_VERSION' ) ) {
-    define( 'KIRKI_VERSION', '3.0.44' );
-}
-
 // Make sure the path is properly set.
 Ghost_Framework_Kirki::$path = Ghost_Framework::get_path() . '/inc/kirki'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
 Ghost_Framework_Kirki_Init::set_url();

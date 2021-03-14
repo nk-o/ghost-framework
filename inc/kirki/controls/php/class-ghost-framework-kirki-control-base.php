@@ -97,13 +97,13 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
         $kirki_url = trailingslashit( Ghost_Framework_Kirki::$url );
 
         // Enqueue ColorPicker.
-        wp_enqueue_script( 'wp-color-picker-alpha', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/wp-color-picker-alpha/wp-color-picker-alpha.js', array( 'wp-color-picker', 'wp-i18n' ), KIRKI_VERSION, true );
+        wp_enqueue_script( 'wp-color-picker-alpha', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/wp-color-picker-alpha/wp-color-picker-alpha.js', array( 'wp-color-picker', 'wp-i18n' ), '@@theme_version', true );
         wp_enqueue_style( 'wp-color-picker' );
 
         // Enqueue selectWoo.
         wp_enqueue_script( 'select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/js/selectWoo.full.js', array( 'jquery' ), '1.0.1', true );
         wp_enqueue_style( 'select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/css/selectWoo.css', array(), '1.0.1' );
-        wp_enqueue_style( 'kirki-select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/kirki.css', array(), KIRKI_VERSION );
+        wp_enqueue_style( 'kirki-select-woo', trailingslashit( Ghost_Framework_Kirki::$url ) . 'assets/vendor/selectWoo/kirki.css', array(), '@@theme_version' );
 
         // Enqueue the script.
         wp_enqueue_script(
@@ -118,7 +118,7 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
                 'jquery-ui-button',
                 'jquery-ui-datepicker',
             ),
-            KIRKI_VERSION,
+            '@@theme_version',
             false
         );
 
@@ -143,7 +143,7 @@ class Ghost_Framework_Kirki_Control_Base extends WP_Customize_Control {
             'kirki-styles',
             "{$kirki_url}controls/css/styles.min.css",
             array(),
-            KIRKI_VERSION
+            '@@theme_version'
         );
     }
 
