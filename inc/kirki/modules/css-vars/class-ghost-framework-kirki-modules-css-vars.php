@@ -142,7 +142,7 @@ class Ghost_Framework_Kirki_Modules_CSS_Vars {
      * @return void
      */
     public function postmessage() {
-        wp_enqueue_script( 'kirki_auto_css_vars', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/css-vars/script.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
+        wp_enqueue_script( 'kirki-auto-css-vars', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/css-vars/script.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
         $fields = Ghost_Framework_Kirki::$fields;
         $data   = array();
         foreach ( $fields as $field ) {
@@ -150,6 +150,6 @@ class Ghost_Framework_Kirki_Modules_CSS_Vars {
                 $data[] = $field;
             }
         }
-        wp_localize_script( 'kirki_auto_css_vars', 'kirkiCssVarFields', $data );
+        wp_localize_script( 'kirki-auto-css-vars', 'kirkiCssVarFields', $data );
     }
 }

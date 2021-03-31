@@ -62,7 +62,7 @@ class Ghost_Framework_Kirki_Modules_PostMessage {
      * The rest is handled via JS.
      */
     public function postmessage() {
-        wp_enqueue_script( 'kirki_auto_postmessage', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/postmessage/postmessage.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
+        wp_enqueue_script( 'kirki-auto-postmessage', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/postmessage/postmessage.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
         $fields = Ghost_Framework_Kirki::$fields;
         $data   = array();
         foreach ( $fields as $field ) {
@@ -70,10 +70,10 @@ class Ghost_Framework_Kirki_Modules_PostMessage {
                 $data[] = $field;
             }
         }
-        wp_localize_script( 'kirki_auto_postmessage', 'kirkiPostMessageFields', $data );
+        wp_localize_script( 'kirki-auto-postmessage', 'kirkiPostMessageFields', $data );
         $extras = apply_filters( 'kirki_postmessage_script', false );
         if ( $extras ) {
-            wp_add_inline_script( 'kirki_auto_postmessage', $extras, 'after' );
+            wp_add_inline_script( 'kirki-auto-postmessage', $extras, 'after' );
         }
     }
 }

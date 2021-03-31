@@ -65,6 +65,6 @@ class Ghost_Framework_Kirki_Modules_Field_Dependencies {
      * @return void
      */
     public function field_dependencies() {
-        wp_enqueue_script( 'kirki_field_dependencies', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/field-dependencies/field-dependencies.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), '@@theme_version', true );
+        wp_enqueue_script( 'kirki-field-dependencies', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/field-dependencies/field-dependencies.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), '@@theme_version', true );
     }
 }

@@ -54,7 +54,7 @@ class Ghost_Framework_Kirki_Modules_Post_Meta {
      * @since 3.1.0
      */
     public function enqueue_control_scripts() {
-        wp_enqueue_script( 'kirki_post_meta_previewed_controls', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/post-meta/customize-controls.min.js', array( 'jquery', 'customize-controls' ), '@@theme_version', true );
+        wp_enqueue_script( 'kirki-post-meta-previewed-controls', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/post-meta/customize-controls.min.js', array( 'jquery', 'customize-controls' ), '@@theme_version', true );
     }
 
     /**
@@ -74,7 +74,7 @@ class Ghost_Framework_Kirki_Modules_Post_Meta {
      * @since 3.1.0
      */
     public function enqueue_preview_scripts() {
-        wp_enqueue_script( 'kirki_post_meta_previewed_preview', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/post-meta/customize-preview.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
+        wp_enqueue_script( 'kirki-post-meta-previewed-preview', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/post-meta/customize-preview.min.js', array( 'jquery', 'customize-preview' ), '@@theme_version', true );
 
         $wp_scripts   = wp_scripts();
         $queried_post = null;
@@ -82,6 +82,6 @@ class Ghost_Framework_Kirki_Modules_Post_Meta {
             $queried_post       = get_queried_object();
             $queried_post->meta = get_post_custom( $queried_post->id );
         }
-        $wp_scripts->add_data( 'kirki_post_meta_previewed_preview', 'data', sprintf( 'var _customizePostPreviewedQueriedObject = %s;', wp_json_encode( $queried_post ) ) );
+        $wp_scripts->add_data( 'kirki-post-meta-previewed-preview', 'data', sprintf( 'var _customizePostPreviewedQueriedObject = %s;', wp_json_encode( $queried_post ) ) );
     }
 }

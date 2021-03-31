@@ -98,8 +98,8 @@ class Ghost_Framework_Kirki_Modules_Icons {
             }
         }
 
-        wp_enqueue_script( 'kirki_panel_and_section_icons', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/icons/icons.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), '@@theme_version', true );
-        wp_localize_script( 'kirki_panel_and_section_icons', 'kirkiIcons', self::$icons );
-        wp_enqueue_style( 'kirki_panel_and_section_icons', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/icons/icons.min.css', array(), '@@theme_version' );
+        wp_enqueue_script( 'kirki-panel-and-section-icons', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/icons/icons.min.js', array( 'jquery', 'customize-base', 'customize-controls' ), '@@theme_version', true );
+        wp_localize_script( 'kirki-panel-and-section-icons', 'kirkiIcons', self::$icons );
+        wp_enqueue_style( 'kirki-panel-and-section-icons', trailingslashit( Ghost_Framework_Kirki::$url ) . 'modules/icons/icons.min.css', array(), '@@theme_version' );
     }
 }
