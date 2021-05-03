@@ -88,6 +88,7 @@ class Ghost_Framework_Kirki_Init {
             'repeater'              => 'Ghost_Framework_Kirki_Control_Repeater',
             'kirki-select'          => 'Ghost_Framework_Kirki_Control_Select',
             'kirki-slider'          => 'Ghost_Framework_Kirki_Control_Slider',
+            'kirki-generic'         => 'Ghost_Framework_Kirki_Control_Generic',
             'kirki-toggle'          => 'Ghost_Framework_Kirki_Control_Toggle',
             'image'                 => 'Ghost_Framework_Kirki_Control_Image',
             'cropped_image'         => 'Ghost_Framework_Kirki_Control_Cropped_Image',
