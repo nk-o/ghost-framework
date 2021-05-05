@@ -1106,7 +1106,7 @@ class Ghost_Framework {
             ), $args
         );
 
-        $page_links = paginate_links( apply_filters( 'ghost_pagination_args', $args ) );
+        $page_links = paginate_links( apply_filters( 'ghost_framework_pagination_args', $args ) );
 
         if ( ! is_array( $page_links ) ) {
             return;
