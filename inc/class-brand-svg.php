@@ -575,8 +575,8 @@ class Ghost_Framework_Brand_Svg {
          * Example of new icon placed in your theme:
             array(
                 'my_icon' => array(
-                    'name' => 'My Icon',
-                    'path' => get_template_directory() . '/icons/my-icon.svg',
+                    'name'     => 'My Icon',
+                    'svg_path' => get_template_directory() . '/icons/my-icon.svg',
                 ),
             );
          */
@@ -588,7 +588,7 @@ class Ghost_Framework_Brand_Svg {
 
         // Prepare SVG paths.
         foreach ( $brands as $k => $data ) {
-            $svg_path = isset( $data['path'] ) ? $data['path'] : ( $base_path . $k . '.svg' );
+            $svg_path = isset( $data['svg_path'] ) ? $data['svg_path'] : ( $base_path . $k . '.svg' );
 
             if ( file_exists( $svg_path ) ) {
                 $result[ $k ] = array_merge(
