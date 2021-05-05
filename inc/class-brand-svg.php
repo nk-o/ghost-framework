@@ -570,12 +570,25 @@ class Ghost_Framework_Brand_Svg {
             'zhihu'                     => esc_html__( 'Zhihu', '@@text_domain' ),
         );
 
+        /**
+         * Custom icons support.
+         * Example of new icon placed in your theme:
+            array(
+                'my_icon' => array(
+                    'name' => 'My Icon',
+                    'path' => get_template_directory() . '/icons/my-icon.svg',
+                ),
+            );
+         */
+        $custom_brands = apply_filters( 'ghost_framework_custom_brand_icons', array() );
+
+        $brands    = array_merge( $brands, $custom_brands );
         $result    = array();
         $base_path = __DIR__ . '/svg/';
 
         // Prepare SVG paths.
         foreach ( $brands as $k => $data ) {
-            $svg_path = $base_path . $k . '.svg';
+            $svg_path = isset( $data['path'] ) ? $data['path'] : ( $base_path . $k . '.svg' );
 
             if ( file_exists( $svg_path ) ) {
                 $result[ $k ] = array_merge(
@@ -586,11 +599,14 @@ class Ghost_Framework_Brand_Svg {
                         'svg' => self::get_svg_by_path( $svg_path, $svg_data ),
                     ) : array(),
                     array(
-                        'svg_path' => $base_path . $k . '.svg',
+                        'svg_path' => $svg_path,
                     )
                 );
             }
         }
+
+        // Sort by key.
+        ksort( $result );
 
         return $result;
     }
