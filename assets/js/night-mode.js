@@ -117,10 +117,10 @@
             render: withSelect( ( select ) => {
                 const {
                     getEditorMode,
-                } = select( 'core/edit-post' );
+                } = select( 'core/edit-post' ) || {};
 
                 return {
-                    editorMode: getEditorMode(),
+                    editorMode: getEditorMode ? getEditorMode() : '',
                 };
             } )( EditorNightMode ),
         } );
