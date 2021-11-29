@@ -23,5 +23,8 @@
         "webpack": "^5.21.1",
         "webpack-cli": "^4.5.0",
         "webpack-remove-empty-scripts": "^0.7.1"
+    },
+    "dependencies": {
+        "has-localstorage": "^1.0.1"
     }
 }

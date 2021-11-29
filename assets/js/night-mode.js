@@ -1,12 +1,16 @@
+import hasLocalStorage from 'has-localstorage';
+
 ( () => {
     const {
         ghostFrameworkNightMode,
-        localStorage,
         matchMedia,
         jQuery: $,
     } = window;
 
-    if ( 'undefined' === typeof ghostFrameworkNightMode ) {
+    // We need this to prevent JS error in the iframe in Incognito mode.
+    const localStorage = hasLocalStorage() ? window.localStorage : false;
+
+    if ( 'undefined' === typeof ghostFrameworkNightMode || ! localStorage ) {
         return;
     }
 
