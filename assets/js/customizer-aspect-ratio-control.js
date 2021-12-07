@@ -88,7 +88,7 @@ $( function() {
         const val = $this.val();
 
         updateElements( $this.closest( `.${ controlClass }` ), val, 'custom' === val );
-    } )
+    } );
 
     // Change custom value.
     $( document ).on( 'input change', `.${ controlClass }-custom-width, .${ controlClass }-custom-height`, function() {
@@ -97,5 +97,11 @@ $( function() {
         const height = $this.find( `.${ controlClass }-custom-height` ).val();
 
         updateElements( $this, `${ width }:${ height }`, true );
-    } )
+    } );
+
+    // Use Select2.
+    $(`.${controlClass}-select`).selectWoo({
+        // Disable search input.
+        minimumResultsForSearch: -1,
+    });
 } );
