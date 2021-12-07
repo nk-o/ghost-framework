@@ -663,6 +663,8 @@ kirki = jQuery.extend(kirki, {
                     multiple = parseInt(element.data('multiple'), 10),
                     selectValue,
                     selectWooOptions = {
+                        // Disable search input.
+                        minimumResultsForSearch: -1,
                         escapeMarkup(markup) {
                             return markup;
                         },
@@ -2151,7 +2153,10 @@ wp.customize.controlConstructor.repeater = wp.customize.Control.extend({
             $select,
             dataField,
             multiple,
-            selectWooOptions = {};
+            selectWooOptions = {
+                // Disable search input.
+                minimumResultsForSearch: -1,
+            };
 
         if (dropdown.length === 0) {
             return;
