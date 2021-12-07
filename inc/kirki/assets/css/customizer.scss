@@ -364,7 +364,8 @@
             border-radius: 4px;
             box-shadow: 0 0 0 transparent;
         }
-        .select2-container--focus .select2-selection--single {
+        .select2-container--focus .select2-selection--single,
+        .select2-container--open .select2-selection--single {
             outline: none;
             border-color: #2271b1;
             color: #0a4b78;
