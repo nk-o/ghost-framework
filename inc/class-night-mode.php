@@ -45,6 +45,7 @@ class Ghost_Framework_Night_Mode {
 
         add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wp_enqueue_scripts' ) );
         add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
+        add_filter( 'script_loader_tag', array( __CLASS__, 'rocket_loader_filter' ) );
 
         add_action( 'autoptimize_filter_js_exclude', array( __CLASS__, 'autoptimize_filter_js_exclude' ) );
     }
@@ -65,6 +66,23 @@ class Ghost_Framework_Night_Mode {
 
         wp_enqueue_script( 'ghost-framework-night-mode', Ghost_Framework::get_url() . '/assets/js/night-mode.min.js', array( 'jquery', 'wp-element', 'wp-plugins', 'wp-data' ), '@@theme_version', false );
         wp_localize_script( 'ghost-framework-night-mode', 'ghostFrameworkNightMode', self::$attributes );
+    }
+
+    /**
+     * Disable rocket loader from the night mode script, since we have to add
+     * night mode classname to the <html> tag immediately.
+     *
+     * @param String $tag    - tag output.
+     * @param String $handle - script handle.
+     *
+     * @return String
+     */
+    public static function rocket_loader_filter( $tag, $handle ) {
+        if ( 'ghost-framework-night-mode' === $handle ) {
+            $tag = str_replace( '<script', '<script data-cfasync="false"', $tag );
+        }
+    
+        return $tag;
     }
 
     /**
