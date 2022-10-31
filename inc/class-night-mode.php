@@ -45,7 +45,7 @@ class Ghost_Framework_Night_Mode {
 
         add_action( 'wp_enqueue_scripts', array( __CLASS__, 'wp_enqueue_scripts' ) );
         add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_block_editor_assets' ) );
-        add_filter( 'script_loader_tag', array( __CLASS__, 'rocket_loader_filter' ) );
+        add_filter( 'script_loader_tag', array( __CLASS__, 'rocket_loader_filter' ), 10, 2 );
 
         add_action( 'autoptimize_filter_js_exclude', array( __CLASS__, 'autoptimize_filter_js_exclude' ) );
     }
