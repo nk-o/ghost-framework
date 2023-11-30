@@ -15,6 +15,11 @@
  * You should instead extend it per-field-type.
  */
 class Ghost_Framework_Kirki_Field {
+	public $label;
+	public $row_label;
+	public $button_label;
+	public $description;
+	public $help;
 
     /**
      * An array of the field arguments.

@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Singleton class
  */
 final class Ghost_Framework_Kirki_Toolkit {
+    public $modules;
 
     /**
      * Holds the one, true instance of this object.
