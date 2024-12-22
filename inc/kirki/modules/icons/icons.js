@@ -38,9 +38,9 @@ jQuery(() => {
         // Add icons in lists & headers.
         _.each(kirkiIcons.panel, (icon, panelID) => {
             if ( isSvg( icon ) ) {
-                jQuery(`#accordion-panel-${panelID} > h3, #sub-accordion-panel-${panelID} .panel-title`).prepend( prepareSvg( icon ) );
+                jQuery(`#accordion-panel-${panelID} > h3 > .accordion-trigger, #sub-accordion-panel-${panelID} .panel-title`).prepend( prepareSvg( icon ) );
             } else {
-                jQuery(`#accordion-panel-${panelID} > h3, #sub-accordion-panel-${panelID} .panel-title`).addClass(`dashicons-before ${icon}`);
+                jQuery(`#accordion-panel-${panelID} > h3 > .accordion-trigger, #sub-accordion-panel-${panelID} .panel-title`).addClass(`dashicons-before ${icon}`);
             }
         });
     }
