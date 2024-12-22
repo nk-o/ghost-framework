@@ -53,12 +53,12 @@ function ghost_framework_customizer_register_control_collapsible( $controls ) {
          */
         protected function render_content() {
             ?>
-            <label class="customize-control-kirki-collapsible <?php echo esc_attr( $this->expanded ? 'customize-control-kirki-collapsible-expanded' : '' ); ?>">
+            <button class="customize-control-kirki-collapsible <?php echo esc_attr( $this->expanded ? 'customize-control-kirki-collapsible-expanded' : '' ); ?>">
                 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
                 <?php if ( ! empty( $this->description ) ) : ?>
                     <span class="description customize-control-description"><?php echo wp_kses_post( $this->description ); ?></span>
                 <?php endif; ?>
-            </label>
+            </button>
             <?php
         }
     }
@@ -80,7 +80,7 @@ function ghost_framework_customizer_register_control_collapsible( $controls ) {
          */
         protected function render_content() {
             ?>
-            <label class="customize-control-kirki-collapsible-end"></label>
+            <div class="customize-control-kirki-collapsible-end"></div>
             <?php
         }
     }

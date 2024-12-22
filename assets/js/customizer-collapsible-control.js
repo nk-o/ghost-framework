@@ -18,7 +18,9 @@ $( function() {
     } );
 
     // Collapse on click.
-    $( document ).on( 'click', '.customize-control-kirki-collapsible', function() {
+    $( document ).on( 'click', '.customize-control-kirki-collapsible', function(e) {
+        e.preventDefault();
+
         const $collapsible = $( this );
         collapse( $collapsible, $collapsible.hasClass( 'customize-control-kirki-collapsible-expanded' ) );
     } )
