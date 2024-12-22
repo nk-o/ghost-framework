@@ -45,12 +45,19 @@
         }
     }
 
-    .control-section:hover > .accordion-section-title,
-    .control-section .accordion-section-title:hover,
-    .control-section.open .accordion-section-title,
-    .control-section .accordion-section-title:focus {
-        color: #0073aa;
-        background: #fdfdfd;
+    .control-section {
+        padding: 0;
+
+        > .accordion-trigger {
+            padding: 10px 20px;
+        }
+
+        .accordion-section-title > .accordion-trigger:hover,
+        &.open .accordion-section-title > .accordion-trigger,
+        .accordion-section-title > .accordion-trigger:focus {
+            color: #0073aa;
+            background: #fdfdfd;
+        }
     }
 
     /*
@@ -66,7 +73,7 @@
         margin-top: 3px;
     }
     .customize-control {
-        width: calc(100% - 20px);
+        width: calc(100% + 24px);
         padding: 10px;
         margin-bottom: 0;
 

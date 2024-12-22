@@ -20,13 +20,13 @@ jQuery(() => {
         _.each(kirkiIcons.section, (icon, sectionID) => {
             if ( isSvg( icon ) ) {
                 // Add icons in list.
-                jQuery(`#accordion-section-${sectionID} > h3`).prepend( prepareSvg( icon ) );
+                jQuery(`#accordion-section-${sectionID} > h3 > .accordion-trigger`).prepend( prepareSvg( icon ) );
 
                 // Add icons on titles when a section is open.
                 jQuery(`#sub-accordion-section-${sectionID} .customize-section-title > h3 .customize-action`).after( prepareSvg( icon ) );
             } else {
                 // Add icons in list.
-                jQuery(`#accordion-section-${sectionID} > h3`).addClass(`dashicons-before ${icon}`);
+                jQuery(`#accordion-section-${sectionID} > h3 > .accordion-trigger`).addClass(`dashicons-before ${icon}`);
 
                 // Add icons on titles when a section is open.
                 jQuery(`#sub-accordion-section-${sectionID} .customize-section-title > h3`).append(`<span class="dashicons ${icon}" style="float:left;padding-right:.1em;padding-top:2px;"></span>`);
