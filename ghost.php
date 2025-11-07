@@ -107,10 +107,39 @@ class Ghost_Framework {
     /**
      * Check Theme active.
      *
+     * This method safely checks theme activation status even during early initialization
+     * before the theme dashboard is fully loaded (WordPress 6.7+ compatibility).
+     *
      * @return bool
      */
     public static function is_theme_active() {
-        return ( function_exists( 'nk_theme' ) && ( nk_theme()->theme_dashboard()->is_envato_hosted || nk_theme()->theme_dashboard()->activation()->active ) );
+        // Check if helper plugin is available
+        if ( ! function_exists( 'nk_theme' ) ) {
+            return false;
+        }
+
+        // Get dashboard instance (may be partially initialized)
+        $dashboard = nk_theme()->theme_dashboard();
+
+        // Verify dashboard object exists and has required properties
+        if ( ! is_object( $dashboard ) ) {
+            return false;
+        }
+
+        // Check Envato Hosted status (property, safe to access early)
+        if ( property_exists( $dashboard, 'is_envato_hosted' ) && $dashboard->is_envato_hosted ) {
+            return true;
+        }
+
+        // Check activation status (may trigger activation class initialization)
+        if ( method_exists( $dashboard, 'activation' ) ) {
+            $activation = $dashboard->activation();
+            if ( is_object( $activation ) && property_exists( $activation, 'active' ) ) {
+                return $activation->active;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -394,9 +423,9 @@ class Ghost_Framework {
      * @param string $src_fallback - css file src in case if scss compilation failed.
      */
     public static function enqueue_scss( $handle, $src = '', $deps = array(), $ver = false, $media = 'all', $src_fallback = '' ) {
+        // Use safe is_theme_active() check that handles early initialization
         $use_fallback = ! $src ||
-                        ! function_exists( 'nk_theme' ) ||
-                        ( ! nk_theme()->theme_dashboard()->is_envato_hosted && ! nk_theme()->theme_dashboard()->activation()->active ) ||
+                        ! self::is_theme_active() ||
                         version_compare( phpversion(), '5.4', '<' );
 
         if ( ! $use_fallback ) {
