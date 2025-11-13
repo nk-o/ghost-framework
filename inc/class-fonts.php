@@ -238,6 +238,8 @@ class Ghost_Framework_Fonts {
     /**
      * Add Google fonts list.
      *
+     * @link https://developers.google.com/fonts/docs/developer_api?apix_params=%7B%22alt%22%3A%22json%22%2C%22fields%22%3A%22items(family%2Ckind%2Ccategory%2Cvariants%2Csubsets%2Cversion%2ClastModified)%22%2C%22prettyPrint%22%3Afalse%7D - get new fonts.
+     *
      * @param array $fonts - fonts list.
      *
      * @return array
