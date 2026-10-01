@@ -45,12 +45,12 @@ function ghost_framework_customizer_register_control_aspect_ratio( $controls ) {
                     id="<?php echo esc_attr( $input_id ); ?>-select"
                     class="customize-control-kirki-aspect-ratio-select"
                 >
-                    <option value="auto" <?php selected( $this->value() === 'auto' ); ?>><?php echo esc_attr__( 'Auto', '@@text_domain' ); ?></option>
-                    <option value="16:9" <?php selected( $this->value() === '16:9' ); ?>><?php echo esc_attr__( 'Wide 16:9', '@@text_domain' ); ?></option>
-                    <option value="21:9" <?php selected( $this->value() === '21:9' ); ?>><?php echo esc_attr__( 'Ultra Wide 21:9', '@@text_domain' ); ?></option>
-                    <option value="4:3" <?php selected( $this->value() === '4:3' ); ?>><?php echo esc_attr__( 'TV 4:3', '@@text_domain' ); ?></option>
-                    <option value="3:2" <?php selected( $this->value() === '3:2' ); ?>><?php echo esc_attr__( 'Classic Film 3:2', '@@text_domain' ); ?></option>
-                    <option value="custom"><?php echo esc_attr__( 'Custom', '@@text_domain' ); ?></option>
+                    <option value="auto" <?php selected( $this->value() === 'auto' ); ?>><?php echo esc_html__( 'Auto', '@@text_domain' ); ?></option>
+                    <option value="16:9" <?php selected( $this->value() === '16:9' ); ?>><?php echo esc_html__( 'Wide 16:9', '@@text_domain' ); ?></option>
+                    <option value="21:9" <?php selected( $this->value() === '21:9' ); ?>><?php echo esc_html__( 'Ultra Wide 21:9', '@@text_domain' ); ?></option>
+                    <option value="4:3" <?php selected( $this->value() === '4:3' ); ?>><?php echo esc_html__( 'TV 4:3', '@@text_domain' ); ?></option>
+                    <option value="3:2" <?php selected( $this->value() === '3:2' ); ?>><?php echo esc_html__( 'Classic Film 3:2', '@@text_domain' ); ?></option>
+                    <option value="custom"><?php echo esc_html__( 'Custom', '@@text_domain' ); ?></option>
                 </select>
 
                 <div class="customize-control-kirki-aspect-ratio-custom customize-control-kirki-aspect-ratio-hide">
